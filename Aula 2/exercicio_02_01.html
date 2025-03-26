@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula-02-01</title>
+    <style>
+        body{
+           background-color:cornflowerblue;
+           font-family: 'Courier New', Courier, monospace;
+           text-align: center; 
+        }
+        .cabecalho{
+            background-color: gold;
+            padding: 5px;
+            border-radius: 15px;
+        }
+        .corpo{
+            background: rgba(0,0,0,0.6);
+            width: 70%;            
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            padding: 15px;
+            border-radius: 15px;
+            color:greenyellow;
+            font-size: 15pt;
+        }
+        input{
+            padding: 10px;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            font-size: 20px;
+            width: 60%;            
+        }
+        button{
+            padding: 10px;
+            border: none;
+            outline: none;
+            width: 15%;
+            background-color: slateblue;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.5;
+            color: white;
+        }
+        button:hover{
+            background-color: cornflowerblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="cabecalho">
+        <h1>Ervaldo - Estudos de JavaScript (Oxetech Prof. Nicollas Provatti - SECTI@123)</h1>
+        <h2>Aula 1 - Questão 1 – Gerador de Senha Simples</h2>
+    </div>
+    <div class="corpo">
+        <hr>
+        <p>Peça ao usuário uma palavra e transforme-a em uma “senha segura”, seguindo estas regras:</p>
+        <p>Remova espaços extras.</p>
+        <p>Substitua a letra “a” por “@”, “i” por “1” e “o” por “0”.</p>
+        <p>Dica: Combine trim() e replace().</p>
+        <hr>
+        <br>
+        <input type="text" id="espacos" placeholder="Digite um valor">
+        <br>
+        <br>
+        <button onclick="espacos()">Enviar</button>
+    </div>    
+</body>
+    <script>
+        function espacos(){
+            let palavra = document.getElementById('espacos').value
+            let modificadas = palavra.trim()
+            let modificadas01 = modificadas.replace(/a/gi,"@")
+            let modificadas02 = modificadas01.replace(/i/gi,"1")
+            let modificadas03 = modificadas02.replace(/O/gi,"0")
+            alert(modificadas03)
+        }
+    </script>
+</html>

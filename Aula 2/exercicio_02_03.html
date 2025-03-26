@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula-02-03</title>
+    <style>
+        body{
+           background-color:cornflowerblue;
+           font-family: 'Courier New', Courier, monospace;
+           text-align: center; 
+        }
+        .cabecalho{
+            background-color: gold;
+            padding: 5px;
+            border-radius: 15px;
+        }
+        .corpo{
+            background: rgba(0,0,0,0.6);
+            width: 70%;            
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            padding: 15px;
+            border-radius: 15px;
+            color:greenyellow;
+            font-size: 15pt;
+        }
+        input{
+            padding: 10px;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            font-size: 20px;
+            width: 60%;            
+        }
+        button{
+            padding: 10px;
+            border: none;
+            outline: none;
+            width: 15%;
+            background-color: slateblue;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.5;
+            color: white;
+        }
+        button:hover{
+            background-color: cornflowerblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="cabecalho">
+        <h1>Ervaldo - Estudos de JavaScript (Oxetech Prof. Nicollas Provatti - SECTI@123)</h1>
+        <h2>Questão 3 – Duelo de Dados</h2>
+    </div>
+    <div class="corpo">
+        <hr>
+        <p>Crie um programa onde dois jogadores competem entre si em um lançamento de dados.</p>
+        <p>Regras do jogo:</p>
+        <p>Cada jogador escolhe um número entre 1 e 6.</p>
+        <p>O programa "rola" (gera um número aleatório entre 1 e 6).</p>
+        <p>O jogador cujo número sorteado estiver mais próximo do número escolhido vence.</p>
+        Se houver empate, informe que foi um empate.</p>
+        <p>Dicas:</p>
+        <p>Use Math.random() para simular os dados.</p>
+        <p>Use Math.abs() para calcular a diferença entre o número escolhido e o sorteado.</p>
+        <hr><br>
+
+        <input type="number" id="espacos" placeholder="Digite um valor entre 1 e 6">
+        <br>
+        <br>
+        <button onclick="espacos()">Enviar</button>
+    </div>    
+</body>
+    <script>
+        function espacos(){
+            let numEscolhido = document.getElementById('espacos').value
+
+            if (numEscolhido < 1 || numEscolhido > 6) {
+
+                alert("Por favor escolha um número entre 1 e 9")
+                return
+            }
+
+            let numSorteado = Math.floor(Math.random() * 6) + 1
+
+            if (numEscolhido == numSorteado) {
+                
+                alert("Parabéns, você acertou!!! " + "Número escolhido " + numEscolhido + " e o Número sorteado " + numSorteado)
+            }else{
+                alert("Que pena, você não acertou, " + " Número escolhido...... " + numEscolhido + " Número sorteado..... " + numSorteado)
+            }
+
+        }
+    </script>
+</html>

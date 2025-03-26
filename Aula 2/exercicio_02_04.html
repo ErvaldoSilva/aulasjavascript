@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula-02-04</title>
+    <style>
+        body{
+           background-color:cornflowerblue;
+           font-family: 'Courier New', Courier, monospace;
+           text-align: center; 
+        }
+        .cabecalho{
+            background-color: gold;
+            padding: 5px;
+            border-radius: 15px;
+        }
+        .corpo{
+            background: rgba(0,0,0,0.6);
+            width: 70%;            
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            padding: 15px;
+            border-radius: 15px;
+            color:greenyellow;
+            font-size: 15pt;
+        }
+        input{
+            padding: 10px;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            font-size: 20px;
+            width: 60%;            
+        }
+        button{
+            padding: 10px;
+            border: none;
+            outline: none;
+            width: 15%;
+            background-color: slateblue;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.5;
+            color: white;
+        }
+        button:hover{
+            background-color: cornflowerblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="cabecalho">
+        <h1>Ervaldo - Estudos de JavaScript (Oxetech Prof. Nicollas Provatti - SECTI@123)</h1>
+        <h2>Questão 4 – Jogo de Adivinhação</h2>
+    </div>
+    <div class="corpo">
+        <hr>
+        <p>O computador deve gerar um número aleatório entre 1 e 100, e o usuário precisa adivinhar qual é esse número.</p>
+        <p>O programa deve informar se o palpite do usuário é maior ou menor que o número gerado.</p>
+        <p>O jogo continua até que o usuário acerte.</p>
+        <p>No final, exiba quantas tentativas foram necessárias.</p>
+        <p>Dica: Use Math.random(), Math.floor() e um while para repetir até o acerto.</p>
+
+        <hr>
+        <br>
+        
+        <input type="text" placeholder="Digite um valor">        
+        <br>
+        <br>
+        <button>Enviar</button>
+    </div>    
+    
+</body>
+</html>
