@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesclar Objetos</title>
+</head>
+<body>
+
+
+    <div>
+    <h1 style="text-align: center; color: red;"> 5️⃣ Mesclando Objetos</h1>
+    <hr>
+        📖 Descrição: <br><br>
+
+       * Crie uma função chamada mesclarObjetos que recebe dois objetos e retorna um novo objeto que contém as propriedades dos dois objetos mesclados.<br>
+
+        📌 Requisitos: <br><br>
+            * Utilize Object.assign().<br>
+
+📌 Exemplo de uso: <br><br>
+
+        📌 Exemplo de uso: <br><br>
+            * let obj1 = { a: 1, b: 2 };<br>  
+            * let obj2 = { b: 3, c: 4 };  <br>
+            * mesclarObjetos(obj1, obj2);  <br>
+            // Resultado esperado: { a: 1, b: 3, c: 4 }<br>
+
+    </div>
+    <hr>
+    <div>
+    <script>
+        function mesclarObjetos(obj1, obj2) {
+            return Object.assign({}, obj1, obj2);
+        }
+
+        let obj1 = { a: 1, b: 2 };
+        let obj2 = { b: 3, c: 4 };
+        let objetoMesclado = mesclarObjetos(obj1, obj2);
+
+        document.write(`<p>Objeto 1: ${JSON.stringify(obj1)}</p>`);
+        document.write(`<p>Objeto 2: ${JSON.stringify(obj2)}</p>`);
+        document.write(`<p>Objeto Mesclado: ${JSON.stringify(objetoMesclado)}</p>`);
+    </script>
+</div>
+<hr>
+</body>
+</html>

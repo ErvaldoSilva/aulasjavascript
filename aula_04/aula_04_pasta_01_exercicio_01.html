@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aula_04</title>
+</head>
+<body>
+
+    <div>
+    <h1 style="text-align: center; color: blue;">1️⃣ Gerenciador de Lista de Tarefas</h1>
+    <hr> 
+        📖 Descrição:<br><br>
+
+        * Crie uma função chamada gerenciamento de tarefas que recebe um array de tarefas e uma ação a ser realizada. As ações possíveis são:<br><br>
+
+        * "adicionarInicio" : adicione uma nova tarefa no início da lista.
+        * "adicionarFim" : adiciona uma nova tarefa no final da lista.
+        * "removerInicio" : remove a primeira tarefa da lista.
+        * "removerFim" : remove a última tarefa da lista.
+
+        *📌 Requisitos:<br><br>
+
+        * A função deve receber duas parâmetros: o conjunto de tarefas e a ação a ser realizada.<br>
+        * Se a ação for "adicionarInicio" ou "adicionarFim", a função também deve receber um terceiro parâmetro com a tarefa a ser incluída.<br>
+        * Retorne o array atualizado após a operação.<br>
+
+        📌 Exemplo de uso: <br><br>
+
+        const tarefas = ["Estudar", "Treinar", "Ler"];  <br>      
+        gerenciarTarefas(tarefas, "adicionarFim", "Dormir"); <br>  
+        // Resultado esperado: ["Estudar", "Treinar", "Ler", "Dormir"] <br> 
+
+    </div>
+    <hr>
+
+    <div>    
+    <p id="tarefas"></p>
+    <hr>
+    <label for="acao">Ação:</label><br>
+    <select id="acao">
+        <option value="adicionarInicio">Adicionar no início</option>
+        <option value="adicionarFim">Adicionar no final</option>
+        <option value="removerInicio">Remover do início</option>
+        <option value="removerFim">Remover do final</option>
+    </select>
+    <br><hr>
+    <label for="novaTarefa">Nova Tarefa (opcional):</label><br>
+    <input type="text" id="novaTarefa" placeholder="Digite uma tarefa">
+    <br>
+    <hr>
+    <button onclick="executarGerenciador()">Executar</button>
+    </div>
+    <hr>
+    <script>
+        const tarefas = ["Estudar", "Treinar", "Ler"]; // Lista inicial de tarefas
+
+        // Função principal para gerenciar tarefas
+        function gerenciarTarefas(array, acao, tarefa = "") {
+            switch (acao) {
+                case "adicionarInicio":
+                    array.unshift(tarefa); // Adiciona no início
+                    break;
+                case "adicionarFim":
+                    array.push(tarefa); // Adiciona no final
+                    break;
+                case "removerInicio":
+                    array.shift(); // Remove do início
+                    break;
+                case "removerFim":
+                    array.pop(); // Remove do final
+                    break;
+                default:
+                    console.log("Ação inválida.");
+            }
+            return array; // Retorna o array atualizado
+        }
+
+        // Função para interagir com o navegador
+        function executarGerenciador() {
+            const acao = document.getElementById("acao").value;
+            const novaTarefa = document.getElementById("novaTarefa").value.trim();
+
+            // Executa a função gerenciarTarefas
+            const resultado = gerenciarTarefas(tarefas, acao, novaTarefa);
+
+            // Exibe o resultado no navegador
+            document.getElementById("tarefas").innerText = "Tarefas: " + resultado.join(", ");
+        }
+
+        // Exibe as tarefas iniciais ao carregar a página
+        document.getElementById("tarefas").innerText = "Tarefas: " + tarefas.join(", ");
+    </script>
+</body>
+</html>

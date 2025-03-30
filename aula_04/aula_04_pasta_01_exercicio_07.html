@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula_04</title>
+</head>
+<body>
+     <div>
+    <h1 style="text-align: center; color: blue;"> 7️⃣ Transformando um Array de Preços</h1>
+    <hr>
+        📖 Descrição: <br><br>
+
+       Crie uma função chamada converterMoeda que recebe um array de preços em dólares e retorna um novo array com os valores convertidos para reais (cotação: 1 dólar = 5 reais).<br>
+
+        📌 Requisitos: <br><br>
+            * Use map para multiplicar cada valor por 5.<br>
+            * Retorne o novo array com os preços convertidos.<br>
+
+📌 Exemplo de uso: <br><br>
+
+        📌 Exemplo de uso: <br><br>
+            * let precosDolares = [10, 20, 30]; <br> 
+            * converterMoeda(precosDolares);  <br>
+            // Resultado esperado: [50, 100, 150]<br>
+
+    </div>
+    <hr>
+    <div>
+    <script>
+        function converterMoeda(precosDolares) {
+            const precosReais = precosDolares.map(preco => preco * 5);
+            return precosReais;
+        }
+
+        const precosDolares = [10, 20, 30];
+        const precosReais = converterMoeda(precosDolares);
+
+        document.write("<p>Preços em dólares: " + precosDolares + "</p>");
+        document.write("<p>Preços convertidos para reais: " + precosReais + "</p>");
+    </script>
+</div>
+<hr>
+</body>
+</html>

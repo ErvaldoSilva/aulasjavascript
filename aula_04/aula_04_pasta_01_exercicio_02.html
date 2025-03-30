@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula_04</title>
+</head>
+<body>
+    <div>
+    <h1 style="text-align: center; color: blue;">2️⃣ Manipulando Notas de um Aluno</h1>
+    <hr>
+        📖 Descrição: <br><br>
+
+        Crie uma função chamada calcularMedia que recebe um array de notas de um aluno e retorna a média das três melhores notas.<br>
+
+        📌 Requisitos: <br><br>
+            * Ordene um array de forma decrescente usando sort().
+            * Pegue as três primeiras notas usando slice().
+            * Calcule e retorne a média dessas notas.
+
+        📌 Exemplo de uso: <br><br>
+
+        const notas = [5, 8, 9, 3, 10, 7]; <br> 
+        calcularMedia(notas);  <br>
+        / Resultado esperado: média das três maiores notas (10, 9 e 8) => 9.0<br>
+
+    </div>
+    <hr>
+
+    <div> 
+    <script>
+        function calcularMedia(notas) {
+            const notasOrdenadas = notas.sort((a, b) => b - a);
+            const tresMaioresNotas = notasOrdenadas.slice(0, 3);
+            const soma = tresMaioresNotas.reduce((acc, nota) => acc + nota, 0);
+            const media = soma / tresMaioresNotas.length;
+            return media;
+        }
+
+        const notas = [5, 8, 9, 3, 10, 7];
+        document.write(`Média das três maiores notas: ${calcularMedia(notas).toFixed(1)}`);
+    </script>
+</div>
+<hr>
+</body>
+</html>

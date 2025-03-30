@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula_04</title>
+</head>
+<body>
+
+
+    <div>
+    <h1 style="text-align: center; color: green;"> 3️⃣ Registro de Alunos e Médias</h1>
+    <hr>
+        📖 Descrição: <br><br>
+
+       * Crie um programa que armazene alunos e suas notas. Cada aluno deve ser um objeto com:<br><br>
+
+       * nome: nome do aluno. <br>
+       * notas: um array de três números representando suas notas.<br><br>
+
+        📌 Requisitos: <br><br>
+
+            O programa deve:<br><br>
+
+            1 - Criar um array chamado alunos com pelo menos três alunos.<br>
+            2 - Criar uma função calcularMedia(nome) que:<br>
+                * Encontra o aluno pelo nome. <br>
+                * Calcula e retorna a média das notas.<br>                
+            3 - Criar uma função adicionarProduto(nome, preco, qtd) que adiciona um novo produto ao estoque. <br>
+            4 - Criar uma função alunosAprovados() que retorna um array com os nomes dos alunos cuja média seja maior ou igual a 7.<br>
+
+
+        📌 Exemplo de uso: <br><br>
+            * console.log(calcularMedia("Ana")); 
+            // Resultado esperado: 8.3 <br>
+
+            * console.log(alunosAprovados());   <br>
+            // Resultado esperado: ["Ana", "Carlos"]<br>
+
+    </div>
+    <hr>
+    <div>
+    <script>
+        let alunos = [
+            { nome: "Ana", notas: [9, 8, 8] },
+            { nome: "Carlos", notas: [7, 7, 7] },
+            { nome: "Bruno", notas: [5, 6, 4] }
+        ];
+
+        function calcularMedia(nome) {
+            let aluno = alunos.find(a => a.nome === nome);
+            if (aluno) {
+                let soma = aluno.notas.reduce((acc, nota) => acc + nota, 0);
+                let media = soma / aluno.notas.length;
+                return media.toFixed(1);
+            } else {
+                return "Aluno não encontrado.";
+            }
+        }
+
+        function alunosAprovados() {
+            return alunos
+                .filter(a => {
+                    let media = a.notas.reduce((acc, nota) => acc + nota, 0) / a.notas.length;
+                    return media >= 7;
+                })
+                .map(a => a.nome);
+        }
+
+        document.write(`<p>Média de Ana: ${calcularMedia("Ana")}</p>`);
+        document.write(`<p>Alunos aprovados: ${alunosAprovados()}</p>`);
+    </script>
+</div>
+<hr>
+</body>
+</html>

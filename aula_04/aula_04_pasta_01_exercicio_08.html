@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtrar Devedores</title>
+</head>
+<body>
+    <div>
+    <h1 style="text-align: center; color: blue;"> 8️⃣ Filtrando Devedores</h1>
+    <hr>
+        📖 Descrição: <br><br>
+
+       Crie uma função chamada filtrarDevedores que recebe um array de dívidas e retorna um novo array contendo apenas as as dívidas que ultrapasam R$ 80,00.<br>
+
+        📌 Requisitos: <br><br>
+            * Use filter para selecionar apenas os devedores.<br>
+
+📌 Exemplo de uso: <br><br>
+
+        📌 Exemplo de uso: <br><br>
+            * let dividas = [95.90, 180.50, 22.99, 105.99, 30.50];  
+            filtrarEleitores(idades);  
+            // Resultado esperado: [95.90, 180.50, 105.99]<br>
+
+    </div>
+    <hr>
+    <div>
+    <script>
+        function filtrarDevedores(dividas) {
+            const devedores = dividas.filter(divida => divida > 80);
+            return devedores;
+        }
+
+        let dividas = [95.90, 180.50, 22.99, 105.99, 30.50];
+        let devedores = filtrarDevedores(dividas);
+
+        document.write(`<p>Dívidas: ${dividas}</p>`);
+        document.write(`<p>Dívidas acima de R$ 80,00: ${devedores}</p>`);
+    </script>
+</div>
+<hr>
+</body>
+</html>

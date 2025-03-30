@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula_04</title>
+</head>
+<body>
+
+    <div>
+    <h1 style="text-align: center; color: green;"> 2️⃣ Gerenciador de Estoque Inteligente</h1>
+    <hr>
+        📖 Descrição: <br><br>
+
+       * Crie um programa para gerenciar um estoque de produtos. Cada produto deve ter as seguintes propriedades:<br><br>
+
+       * nome: nome do produto. <br>
+       * preco: preço do produto. <br>
+       * quantidade: quantidade em estoque..<br><br>
+
+        📌 Requisitos: <br><br>
+
+            O programa deve:<br><br>
+
+            1 - Criar um array chamado estoque com cinco produtos de sua escolha. <br>
+            2 - Criar uma função venderProduto(nome, qtd) que: <br>
+                * Verifica se o produto existe no estoque. <br>
+                * Se houver quantidade suficiente, reduz a quantidade do estoque. <br>
+                * Se não houver, exibe "Estoque insuficiente para este produto.". <br>
+            3 - Criar uma função adicionarProduto(nome, preco, qtd) que adiciona um novo produto ao estoque. <br>
+            4 - Criar uma função estoqueBaixo() que retorna um array com os produtos que têm menos de três unidades.<br>
+
+
+        📌 Exemplo de uso: <br><br>
+            * venderProduto("Arroz", 2); <br>
+            * estoqueBaixo();  <br>
+            // Resultado esperado: ["Feijão", "Óleo"]<br>
+
+    </div>
+    <hr>
+    <div>
+    <script>
+        let estoque = [
+            { nome: "Arroz", preco: 5.0, quantidade: 10 },
+            { nome: "Feijão", preco: 7.5, quantidade: 2 },
+            { nome: "Óleo", preco: 4.8, quantidade: 1 },
+            { nome: "Macarrão", preco: 3.2, quantidade: 5 },
+            { nome: "Açúcar", preco: 2.5, quantidade: 6 },
+        ];
+
+        function venderProduto(nome, qtd) {
+            let produto = estoque.find(p => p.nome === nome);
+            if (produto) {
+                if (produto.quantidade >= qtd) {
+                    produto.quantidade -= qtd;
+                    document.write(`<p>${qtd} unidade(s) de ${nome} vendida(s).</p>`);
+                } else {
+                    document.write("<p>Estoque insuficiente para este produto.</p>");
+                }
+            } else {
+                document.write("<p>Produto não encontrado no estoque.</p>");
+            }
+        }
+
+        function adicionarProduto(nome, preco, qtd) {
+            let produtoExistente = estoque.find(p => p.nome === nome);
+            if (!produtoExistente) {
+                estoque.push({ nome, preco, quantidade: qtd });
+                document.write(`<p>Produto ${nome} adicionado ao estoque.</p>`);
+            } else {
+                document.write("<p>Produto já existe no estoque.</p>");
+            }
+        }
+
+        function estoqueBaixo() {
+            return estoque.filter(p => p.quantidade < 3).map(p => p.nome);
+        }
+
+        venderProduto("Arroz", 2);
+        document.write(`<p>Estoque baixo: ${estoqueBaixo()}</p>`);
+
+        adicionarProduto("Farinha", 3.0, 10);
+        document.write(`<p>Estoque atual: ${JSON.stringify(estoque)}</p>`);
+    </script>
+</div>
+<hr>  
+</body>
+</html>

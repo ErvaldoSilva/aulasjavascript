@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula_04</title>
+</head>
+<body>
+
+    <div>
+    <h1 style="text-align: center; color: red;"> 6️⃣ Restringindo Modificações no Objeto</h1>
+    <hr>
+        📖 Descrição: <br><br>
+
+       * Crie três funções que recebam um objeto e apliquem as seguintes restrições:<br>
+
+        📌 Requisitos: <br><br>
+            * impedirExtensao(obj) → Usa Object.preventExtensions() para impedir a adição de novas propriedades ao objeto. <br>
+            * selarObjeto(obj) → Usa Object.seal() para impedir a adição e remoção de propriedades. <br>
+            * congelarObjeto(obj) → Usa Object.freeze() para impedir qualquer modificação no objeto.<br>
+
+📌 Exemplo de uso: <br><br>
+
+        📌 Exemplo de uso: <br><br>
+            * let produto = { nome: "Celular", preco: 1500 };<br><br>
+
+            // Aplicando restrições <br>
+            * impedirExtensao(produto);<br>
+            * produto.cor = "Preto";  <br>
+            * console.log(produto.cor);  <br>
+            // Resultado esperado: undefined (não pode adicionar)<br><br>
+
+            * selarObjeto(produto);<br>
+            * delete produto.preco;  <br>
+            * console.log(produto.preco);<br>  
+            // Resultado esperado: 1500 (não pode remover)<br><br>
+
+            * congelarObjeto(produto);<br>
+            * produto.preco = 2000;  <br>
+            * console.log(produto.preco);<br>  
+            // Resultado esperado: 1500 (não pode alterar)<br>
+
+    </div>
+    <hr>
+    <div>
+
+    <script>
+        function impedirExtensao(obj) {
+            Object.preventExtensions(obj);
+        }
+
+        function selarObjeto(obj) {
+            Object.seal(obj);
+        }
+
+        function congelarObjeto(obj) {
+            Object.freeze(obj);
+        }
+
+        let produto = { nome: "Celular", preco: 1500 };
+
+        // Aplicando impedirExtensao
+        impedirExtensao(produto);
+        produto.cor = "Preto"; // Tentativa de adicionar uma nova propriedade
+        document.write(`<p>Resultado após impedirExtensao: ${produto.cor}</p>`); // Resultado esperado: undefined
+
+        // Aplicando selarObjeto
+        selarObjeto(produto);
+        delete produto.preco; // Tentativa de remover uma propriedade
+        document.write(`<p>Resultado após selarObjeto: ${produto.preco}</p>`); // Resultado esperado: 1500
+
+        // Aplicando congelarObjeto
+        congelarObjeto(produto);
+        produto.preco = 2000; // Tentativa de alterar uma propriedade
+        document.write(`<p>Resultado após congelarObjeto: ${produto.preco}</p>`); // Resultado esperado: 1500
+    </script>
+</div>
+<hr>
+</body>
+</html>

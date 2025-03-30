@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula_04</title>
+</head>
+<body>
+    <div>
+    <h1 style="text-align: center; color: red;"> 1️⃣ Listando as Propriedades de um Objeto</h1>
+    <hr>
+        📖 Descrição: <br><br>
+
+       Crie uma função chamada listarPropriedades que recebe um objeto e retorna um array contendo todas as suas chaves (propriedades).<br>
+
+        📌 Requisitos: <br><br>
+            * Utilize Object.keys().<br>
+
+📌 Exemplo de uso: <br><br>
+
+        📌 Exemplo de uso: <br><br>
+            * et carro = { marca: "Toyota", modelo: "Corolla", ano: 2022 }; <br>  
+            * listarPropriedades(carro);  <br>
+            // Resultado esperado: ["marca", "modelo", "ano"]<br>
+
+    </div>
+    <hr>
+    <div>
+    <script>
+        function listarPropriedades(objeto) {
+            return Object.keys(objeto);
+        }
+
+        let carro = { marca: "Toyota", modelo: "Corolla", ano: 2022 };
+        let propriedades = listarPropriedades(carro);
+
+        document.write(`<p>Propriedades do objeto carro: ${propriedades}</p>`);
+    </script>
+</div>
+<hr>
+</body>
+</html>

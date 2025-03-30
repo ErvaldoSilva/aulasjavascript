@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula_04</title>
+</head>
+<body>
+
+    <div>
+    <h1 style="text-align: center; color: red;"> 4️⃣ Definindo Propriedades com Restrições</h1>
+    <hr>
+        📖 Descrição: <br><br>
+
+       * Crie um objeto usuario e use Object.defineProperty() para adicionar uma propriedade "senha", que:<br>
+
+        📌 Requisitos: <br><br>
+            * Não pode ser listada (enumerable: false).<br>
+            * Não pode ser alterada (writable: false).<br>
+            * Pode ser lida normalmente.<br>
+
+📌 Exemplo de uso: <br><br>
+
+        📌 Exemplo de uso: <br><br>
+            * let usuario = { nome: "Carlos" };<br>
+            * definirSenha(usuario, "12345");<br>
+
+            * console.log(usuario.senha);  <br>
+            // Resultado esperado: "12345"<br>
+
+            * usuario.senha = "novaSenha";  <br>
+            * console.log(usuario.senha);  <br>
+            // Resultado esperado: "12345" (não altera)<br>
+
+            * console.log(Object.keys(usuario));  <br>
+            // Resultado esperado: ["nome"] (senha não aparece)<br>
+
+    </div>
+    <hr>
+    <div>
+
+    <script>
+        function definirSenha(objeto, senha) {
+            Object.defineProperty(objeto, "senha", {
+                value: senha,
+                writable: false,
+                enumerable: false,
+                configurable: false
+            });
+        }
+
+        let usuario = { nome: "Carlos" };
+        definirSenha(usuario, "12345");
+
+        document.write(`<p>Senha: ${usuario.senha}</p>`);
+        usuario.senha = "novaSenha"; // Tentativa de alterar a senha
+        document.write(`<p>Após tentar alterar a senha: ${usuario.senha}</p>`);
+        document.write(`<p>Propriedades do objeto: ${Object.keys(usuario)}</p>`);
+    </script>
+</div>
+<hr>
+</body>
+</html>

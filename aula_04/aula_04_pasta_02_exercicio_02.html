@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula_04</title>
+</head>
+<body>
+    <div>
+    <h1 style="text-align: center; color: red;"> 2️⃣ Obtendo os Valores de um Objeto</h1>
+    <hr>
+        📖 Descrição: <br><br>
+
+       * Crie uma função chamada listarValores que recebe um objeto e retorna um array contendo todos os valores das propriedades desse objeto.<br>
+
+        📌 Requisitos: <br><br>
+            * Utilize Object.values().<br>
+
+📌 Exemplo de uso: <br><br>
+
+        📌 Exemplo de uso: <br><br>
+            * let pessoa = { nome: "Ana", idade: 25, cidade: "São Paulo" };  <br>
+            * listarValores(pessoa); <br>  
+            // Resultado esperado: ["Ana", 25, "São Paulo"]<br>
+
+    </div>
+    <hr>
+    <div>
+    <script>
+        function listarValores(objeto) {
+            return Object.values(objeto);
+        }
+
+        let pessoa = { nome: "Ana", idade: 25, cidade: "São Paulo" };
+        let valores = listarValores(pessoa);
+
+        document.write(`<p>Valores do objeto pessoa: ${valores}</p>`);
+    </script>
+</div>
+<hr>
+</body>
+</html>

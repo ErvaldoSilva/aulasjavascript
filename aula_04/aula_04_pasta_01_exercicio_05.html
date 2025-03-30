@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula_04</title>
+</head>
+<body>
+     <div>
+    <h1 style="text-align: center; color: blue;">5️⃣ Maior e Menor</h1>
+    <hr>
+        📖 Descrição: <br><br>
+
+        Crie uma duas funções chamadas maior e menor que receba um array de números e retorne o maior e o menor elemento, respectivamente. <br>
+
+        📌 Requisitos: <br><br>
+            * Use for...ofpara percorrer o array. <br>
+            * Informe o maior e o menor número encontrado. <br>
+
+        📌 Exemplo de uso: <br><br>
+            const numeros = [-1, 3, 8, -2, 4, 10] <br>
+            maior(numeros) <br>
+            menor(numeros)<br>
+            // Resultado esperado: 10 -2<br>
+
+    </div>
+    <hr>
+    <div>
+    <script>
+        function maior(array) {
+            let max = array[0];
+            for (let numero of array) {
+                if (numero > max) {
+                    max = numero;
+                }
+            }
+            return max;
+        }
+
+        function menor(array) {
+            let min = array[0];
+            for (let numero of array) {
+                if (numero < min) {
+                    min = numero;
+                }
+            }
+            return min;
+        }
+
+        const numeros = [-1, 3, 8, -2, 4, 10];
+        document.write(`<p>Maior número: ${maior(numeros)}</p>`);
+        document.write(`<p>Menor número: ${menor(numeros)}</p>`);
+    </script>
+</div>
+</body>
+</html>

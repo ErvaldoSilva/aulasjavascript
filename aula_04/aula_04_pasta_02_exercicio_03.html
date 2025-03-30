@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula_04</title>
+</head>
+<body>
+     <div>
+    <h1 style="text-align: center; color: red;"> 3️⃣ Transformando um Objeto em uma Matriz</h1>
+    <hr>
+        📖 Descrição: <br><br>
+
+       * Crie uma função chamada objetoParaMatriz que recebe um objeto e retorna uma matriz onde cada elemento é um array com [chave, valor].<br>
+
+        📌 Requisitos: <br><br>
+            * Utilize Object.entries().<br>
+
+📌 Exemplo de uso: <br><br>
+
+        📌 Exemplo de uso: <br><br>
+            * let produto = { nome: "Notebook", preco: 3000, estoque: 10 }; <br> 
+            * objetoParaMatriz(produto);  <br>
+            /* Resultado esperado:  <br>
+        [
+            * ["nome", "Notebook"],<br>
+            * ["preco", 3000],<br>
+            * ["estoque", 10]<br>
+        ] */<br>
+
+    </div>
+    <hr>
+    <div>
+    <script>
+        function objetoParaMatriz(objeto) {
+            return Object.entries(objeto);
+        }
+
+        let produto = { nome: "Notebook", preco: 3000, estoque: 10 };
+        let matriz = objetoParaMatriz(produto);
+
+        document.write("<p>Matriz resultante:</p>");
+        matriz.forEach(([chave, valor]) => {
+            document.write(`<p>[${chave}, ${valor}]</p>`);
+        });
+    </script>
+</div>
+<hr>
+</body>
+</html>

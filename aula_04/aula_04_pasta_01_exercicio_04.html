@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula_04</title>
+</head>
+<body>
+    <div>
+    <h1 style="text-align: center; color: blue;">4️⃣ Somando números</h1>
+    <hr>
+        📖 Descrição: <br><br>
+
+        Crie uma função chamada somarNumerosque recebe um array e retorna a soma dos números que são divisíveis por 2 e 3. <br>
+
+        📌 Requisitos:<br><br>
+
+        * Use for...ofpara percorrer o array.
+        * Informe o maior e o menor número encontrado.<br>
+
+        📌 Exemplo de uso: <br><br>
+            const numeros = [-1, 3, 8, -2, 4, 10] <br>
+            maior(numeros) <br>
+            menor(numeros) <br>
+            // Resultado esperado: 10 -2<br>
+
+    </div>
+    <hr>
+    <div>
+    <script>
+        function somarNumeros(array) {
+            let soma = 0;
+
+            for (let index in array) {
+                const numero = array[index];
+                if (numero % 2 === 0 && numero % 3 === 0) {
+                    soma += numero;
+                }
+            }
+
+            return soma;
+        }
+
+        const numeros = [4, 10, -4, 6, 24, 50, 12, 0, -1];
+        document.write(`Soma dos números divisíveis por 2 e 3: ${somarNumeros(numeros)}`);
+    </script>
+</div>
+<hr>
+</body>
+</html>

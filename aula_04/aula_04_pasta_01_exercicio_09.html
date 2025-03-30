@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula_04</title>
+</head>
+<body>
+    <div>
+    <h1 style="text-align: center; color: blue;"> 9️⃣ Total de Vendas</h1>
+    <hr>
+        📖 Descrição: <br><br>
+
+       Crie uma função chamada calcularTotalVendas que recebe um array de valores e retorna o total da soma de todos os valores<br>
+
+        📌 Requisitos: <br><br>
+            * Use reduce para somar os valores do array.<br>
+
+📌 Exemplo de uso: <br><br>
+
+        📌 Exemplo de uso: <br><br>
+            * let vendas = [150, 200, 100, 50]; <br> 
+            * calcularTotalVendas(vendas);  <br>
+            // Resultado esperado: 500<br>
+
+    </div>
+    <hr>
+    <div>
+    <script>
+        function calcularTotalVendas(vendas) {
+            const total = vendas.reduce((acumulador, valorAtual) => acumulador + valorAtual, 0);
+            return total;
+        }
+
+        let vendas = [150, 200, 100, 50];
+        const total = calcularTotalVendas(vendas);
+
+        document.write(`<p>Total de vendas: R$ ${total}</p>`);
+    </script>
+</div>
+<hr>
+</body>
+</html>

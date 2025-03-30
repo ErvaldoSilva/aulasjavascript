@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula_04</title>
+</head>
+<body>
+    <div>
+    <h1 style="text-align: center; color: blue;">6️⃣ Acima da Média</h1>
+    <hr>
+        📖 Descrição: <br><br>
+
+       Crie uma função chamada calcularMedia que recebe um array de notas e retorna a média delas. Depois crie outra função chamada acimaMedia que verifica quantas notas estão acima da média. <br>
+
+        📌 Requisitos: <br><br>
+            * Use forEach para somar todas as notas. <br>
+            * Divida pelo total de notas para calcular a média. <br>
+            * Use forEach para checar quantas notas estão acima da média. <br>
+
+📌 Exemplo de uso: <br><br>
+
+        📌 Exemplo de uso: <br><br>
+            * const notas = [6, 8, 9, 5]; 
+            * let media = calcularMedia(notas);  
+            * let aprovados = acimaMedia(media);<br>
+
+    </div>
+    <hr>
+    <div>
+    <script>
+        function calcularMedia(notas) {
+            let soma = 0;
+            notas.forEach(nota => {
+                soma += nota;
+            });
+            const media = soma / notas.length;
+            return media;
+        }
+
+        function acimaMedia(notas, media) {
+            let aprovados = [];
+            notas.forEach(nota => {
+                if (nota > media) {
+                    aprovados.push(nota);
+                }
+            });
+            return aprovados;
+        }
+
+        const notas = [6, 8, 9, 5];
+        const media = calcularMedia(notas);
+        const aprovados = acimaMedia(notas, media);
+
+        document.write(`<p>Média: ${media.toFixed(1)}</p>`);
+        document.write(`<p>Notas acima da média: ${aprovados}</p>`);
+    </script>
+</div>
+<hr>
+</body>
+</html>

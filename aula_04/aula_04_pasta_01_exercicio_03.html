@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula_04</title>
+</head>
+<body>
+
+    <div>
+    <h1 style="text-align: center; color: blue;">3️⃣ Mesclando e Manipulando Listas (concat, length, splice)</h1>
+    <hr>
+        📖 Descrição: <br><br>
+
+        Crie uma função chamada gerenciamentoListas que recebem dois arrays e uma ação a ser realizada:
+
+        * "juntar" : mescla os dois arrays em um só usando concat(). <br>
+        * "removerUltimos" : remove os últimos n elementos do array resultante usando splice().<br>
+
+        📌 Requisitos: <br><br>
+            * A função deve receber três parâmetros: os dois arrays e a ação a ser realizada. <br>
+            * Se a ação for "removerUltimos", um quarto parâmetro deve ser informado com a quantidade de elementos a serem removidos. <br>
+
+        📌 Exemplo de uso: <br><br>
+
+            const lista1 = ["Maçã", "Banana"]; <br>
+            const lista2 = ["Uva", "Laranja", "Pera"];<br>
+
+            gerenciarListas(lista1, lista2, "juntar");<br>
+            // Resultado esperado: ["Maçã", "Banana", "Uva", "Laranja", "Pera"]
+
+            gerenciarListas(lista1, lista2, "removerUltimos", 2);  
+            // Resultado esperado: ["Maçã", "Banana", "Uva"]<br>
+
+    </div>
+    <hr>
+    <div>
+    <script>
+        function gerenciarListas(array1, array2, acao, quantidade) {
+            let resultado;
+
+            if (acao === "juntar") {
+                resultado = array1.concat(array2);
+            } else if (acao === "removerUltimos") {
+                resultado = array1.concat(array2);
+                resultado.splice(-quantidade);
+            } else {
+                return "Ação inválida!";
+            }
+
+            return resultado;
+        }
+
+        const lista1 = ["Maçã", "Banana"];
+        const lista2 = ["Uva", "Laranja", "Pera"];
+
+        document.write("<p>Resultado (juntar): " + gerenciarListas(lista1, lista2, "juntar") + "</p>");
+        document.write("<p>Resultado (removerUltimos): " + gerenciarListas(lista1, lista2, "removerUltimos", 2) + "</p>");
+    </script>
+</div>
+<hr>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula_04</title>
+</head>
+<body>
+
+
+    <div>
+    <h1 style="text-align: center; color: green;"> 4️⃣ Analisador de Comentários</h1>
+    <hr>
+        📖 Descrição: <br><br>
+
+       * Crie um programa que analise comentários de usuários em um site. Cada comentário deve ser um objeto com:<br><br>
+
+       * usuario: nome do usuário.<br>
+       * texto: texto do comentário.<br>
+       * likes: número de curtidas.<br><br>
+
+        📌 Requisitos: <br><br>
+
+            O programa deve:<br><br>
+
+            1 - Criar um array chamado comentarios com pelo menos cinco comentários.<br>
+            2 - Criar uma função topComentarios() que retorna os três comentários com mais curtidas.<br>           
+            3 - Criar uma função buscarComentario(palavra) que retorna um array com os comentários que contenham essa palavra no texto.<br>
+           
+
+
+        📌 Exemplo de uso: <br><br>
+            * console.log(topComentarios());  <br> 
+           // Resultado esperado: [Comentário com 50 likes, Comentário com 40 likes, Comentário com 35 likes]<br>
+
+            * console.log(buscarComentario("JavaScript"));  <br>
+            // Resultado esperado: [Comentário que contém "JavaScript"]<br>
+
+    </div>
+    <hr>
+    <div>
+    <script>
+        let comentarios = [
+            { usuario: "Ana", texto: "Adoro aprender sobre JavaScript!", likes: 50 },
+            { usuario: "Carlos", texto: "HTML e CSS são fundamentais.", likes: 35 },
+            { usuario: "Bruno", texto: "JavaScript é incrível para desenvolvimento web.", likes: 40 },
+            { usuario: "Mariana", texto: "Estou estudando React e amando!", likes: 30 },
+            { usuario: "João", texto: "Alguém pode me ajudar com JavaScript?", likes: 25 }
+        ];
+
+        function topComentarios() {
+            return comentarios
+                .sort((a, b) => b.likes - a.likes)
+                .slice(0, 3);
+        }
+
+        function buscarComentario(palavra) {
+            return comentarios.filter(c => c.texto.includes(palavra));
+        }
+
+        document.write("<p><strong>Top 3 Comentários:</strong></p>");
+        topComentarios().forEach(c => {
+            document.write(`<p>${c.usuario}: "${c.texto}" - ${c.likes} likes</p>`);
+        });
+
+        document.write("<p><strong>Comentários que contêm 'JavaScript':</strong></p>");
+        buscarComentario("JavaScript").forEach(c => {
+            document.write(`<p>${c.usuario}: "${c.texto}" - ${c.likes} likes</p>`);
+        });
+    </script>
+</div>
+<hr>
+</body>
+</html>
