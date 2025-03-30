@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+    <style>
+        #caixa {
+            width: 200px;
+            height: 200px;
+            background-color: lightgray;
+            text-align: center;
+            line-height: 200px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1 style="text-align: center; color: blue;">Eventos de Teclado ( keydown)</h1>
+    </div>
+    <hr>
+    <div>        
+        Crie uma div e manipule diferentes eventos do mouse para mudar a cor e exibir mensagens.<br>
+        📜 Instruções:<br>
+        mouseenter → Exibe um alerta "Entrou na área!".<br>
+        click → Muda a cor de fundo para azul.<br>
+        dblclick → Muda a cor de fundo para verde.<br>
+        mousedown → Muda a cor para vermelho quando o mouse é pressionado.<br>
+        mouseup → Muda a cor para roxo quando o botão do mouse é solto.<br>
+        mousemove → Exibe as coordenadas do mouse dentro da div.<br>
+        mouseleave → Exibe um alerta "Saiu da área!".<br>
+    </div>
+<hr>
+    <div  id="caixa">Passe o mouse</div>
+    <p id="coords"></p>
+    <script>
+
+ const div = document.getElementById('caixa');
+
+        div.addEventListener('mouseenter', () => {
+            alert('Entrou na área!');
+        });
+
+        div.addEventListener('click', () => {
+            div.style.backgroundColor = 'blue';
+        });
+
+        div.addEventListener('dblclick', () => {
+            div.style.backgroundColor = 'green';
+        });
+
+        div.addEventListener('mousedown', () => {
+            div.style.backgroundColor = 'red';
+        });
+
+        div.addEventListener('mouseup', () => {
+            div.style.backgroundColor = 'purple';
+        });
+
+        div.addEventListener('mousemove', (e) => {
+            div.textContent = `Coordenadas: X=${e.offsetX}, Y=${e.offsetY}`;
+        });
+
+        
+
+        div.addEventListener('mouseleave', () => {
+            alert('Saiu da área!');
+            div.textContent = 'Mova o mouse aqui!';
+            div.style.backgroundColor = 'lightgray';
+        });
+    </script>
+    
+</body>
+</html>

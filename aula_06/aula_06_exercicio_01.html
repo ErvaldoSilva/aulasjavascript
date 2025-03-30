@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+    
+</head>
+<body>
+    <div>
+        <h1 style="text-align: center; color: blue;">Eventos Inline vs on[event] vs addEventListener</h1>
+    </div>
+    <hr>
+    <div>        
+        Crie um botão no HTML e implemente os três métodos de adicionar eventos (inline, on[event], addEventListener).<br>
+        📜 Instruções:<br>
+        No primeiro botão, adicione um evento inline no HTML.<br>
+        No segundo botão, adicione um evento usando onclick no JavaScript.<br>
+        No terceiro botão, adicione um evento com addEventListener().<br><hr>
+    </div>
+
+    <button onclick="inline()">Clique (Inline)</button>
+
+    <button id="btn2">Clique (`onclick`)</button>
+
+    <button id="btn3">Clique (`addEventListener`)</button>
+    
+    <div>
+        <hr>   
+        <p id="campo1"></p>
+        <hr>
+    </div>
+
+    <div>
+        <p id="campo2"></p>
+        <hr>
+    </div>
+
+    <div>
+        <p id="campo3"></p>
+        <hr>
+    </div>
+
+    <div>
+        <p>Ao apertar um botão lance um alert informando qual método de adicionar evento foi usado.</p>
+        <hr>
+    </div>
+
+
+    <script>
+        function inline() {
+        //Chamada Inline
+            document.getElementById("campo1").innerHTML = "Metodo Inline"            
+        }
+
+        //Chamada Onclick
+        let botao2 = document.getElementById("btn2")
+        botao2.onclick = function(){
+        document.getElementById("campo2").innerHTML = " Metodo Onclick"
+        }
+
+        //Chamada addEventListener
+        let botao3 = document.getElementById("btn3")
+        botao3.addEventListener("click",function(){
+            document.getElementById("campo3").innerHTML = "Metodo addEventListener"
+
+        })
+        
+        
+        
+
+
+    </script>
+    
+</body>
+</html>

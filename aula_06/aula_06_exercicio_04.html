@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4</title>
+    <style>
+        /* Estilo para o Modo Escuro */
+        body.dark-mode {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1 style="text-align: center; color: red;">Mudar Tema com togglee Evento de Clique</h1>
+    </div>    
+    <hr>
+    <div>
+        Crie um botão que alterna entre "Modo Claro" e "Modo Escuro" ao ser clicado.<br>
+        Instruções:<br>
+        Crie um botão com o texto "Modo Escuro".<br>
+        Quando o botão for clicado, alterne a classe dark-modeno body.<br>
+        Se o modo escuro estiver ativado, o botão deverá exibir "Modo Claro". Caso contrário, "Modo Escuro".<br><br>
+    </div>
+    <hr>
+    <div>
+    <button id="toggleTheme">Modo Escuro</button>
+    </div>
+    <script>
+        // Seleciona o botão
+        const toggleButton = document.getElementById('toggleTheme');
+
+        // Adiciona um evento de clique ao botão
+        toggleButton.addEventListener('click', () => {
+            // Alterna a classe "dark-mode" no body
+            document.body.classList.toggle('dark-mode');
+
+            // Atualiza o texto do botão com base no modo
+            if (document.body.classList.contains('dark-mode')) {
+                toggleButton.textContent = 'Modo Claro';
+            } else {
+                toggleButton.textContent = 'Modo Escuro';
+            }
+        });
+    </script>
+</body>
+</html>

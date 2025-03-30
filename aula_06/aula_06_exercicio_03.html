@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3</title>
+</head>
+<body>
+    <div>
+        <h1 style="text-align: center; color: blue;">Eventos de Teclado ( keydown)</h1>
+    </div>
+    <hr>
+    <div>
+        Crie um campo de entrada ( input) onde o usuário pode digitar, e mostre qual tecla foi pressionada.<br>
+        📜 Instruções:<br>
+        Adicione um campo de texto ( input).<br>
+        Sempre que o usuário iniciar uma tecla, exiba o nome da tecla abaixo do campo.<br><br>
+    </div>
+    <hr>
+    <div>
+    <label for="campo">Digite algo:</label>
+    <input type="text" id="campo">
+    <hr>
+    <p id="tecla"></p>
+    <hr>
+    </div>
+    <script>
+        // Seleciona os elementos HTML
+        const campo = document.getElementById('campo');
+        const tecla = document.getElementById('tecla');
+
+        // Adiciona um evento ao campo de entrada
+        campo.addEventListener('keydown', (evento) => {
+            // Obtém o nome da tecla pressionada e exibe no parágrafo
+            tecla.textContent = `Tecla pressionada: ${evento.key}`;
+        });
+    </script>
+</body>
+</html>
