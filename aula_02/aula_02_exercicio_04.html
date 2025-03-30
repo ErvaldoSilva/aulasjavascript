@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula_02</title>
+</head>
+<body>
+
+    <div>
+   <h1 style="text-align: center; color: blue;">Questão 4 – Jogo de Adivinhação 🔢🎯</h1>
+    <hr>    
+        * O computador deve gerar um número aleatório entre 1 e 100, e o usuário precisa adivinhar qual é esse número.<br><br>
+
+        * O programa deve informar se o palpite do usuário é maior ou menor que o número gerado.<br>
+
+        * O jogo continua até que o usuário acerte.<br>
+        * No final, exiba quantas tentativas foram necessárias.<br>        
+              
+        💡 Dica: <br>
+         * Use Math.random(), Math.floor() e um while para repetir até o acerto.<br>       
+    </div>
+    <hr>
+    <div>    
+    <p>Tente adivinhar o número gerado pelo computador (entre 1 e 100).</p>
+    <hr>
+    <input type="number" id="palpite" min="1" max="100" placeholder="Digite seu palpite">
+    <button onclick="adivinhar()">Enviar Palpite</button>
+    <hr>
+    <p id="mensagem"></p>
+    <hr>
+    </div>
+    <script>
+        // Gera o número aleatório entre 1 e 100
+        var numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+        var tentativas = 0;
+
+        function adivinhar() {
+            // Obtém o palpite do usuário
+            var palpite = parseInt(document.getElementById("palpite").value);
+
+            // Verifica se o palpite é válido
+            if (isNaN(palpite) || palpite < 1 || palpite > 100) {
+                document.getElementById("mensagem").innerText = "Por favor, insira um número entre 1 e 100.";
+                return;
+            }
+
+            // Incrementa o contador de tentativas
+            tentativas++;
+
+            // Compara o palpite com o número gerado
+            if (palpite === numeroAleatorio) {
+                document.getElementById("mensagem").innerText = 
+                    "Parabéns! Você acertou o número em " + tentativas + " tentativas.";
+            } else if (palpite > numeroAleatorio) {
+                document.getElementById("mensagem").innerText = "O número é menor que " + palpite + ".";
+            } else {
+                document.getElementById("mensagem").innerText = "O número é maior que " + palpite + ".";
+            }
+        }
+    </script>
+</body>
+</html>

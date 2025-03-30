@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula_02</title>
+</head>
+<body>
+
+    <div>
+   <h1 style="text-align: center; color: blue;">Questão 5 – Saudação Personalizada 👋😃</h1>
+    <hr>    
+        * Escreva um programa que solicite o nome do usuário e exiba uma mensagem de boas-vindas personalizada no seguinte formato:<br><br>
+
+        * "Olá, [Nome], seja bem-vindo(a)!"<br>
+
+        * Independentemente de como o usuário digite o nome (com letras maiúsculas, minúsculas ou uma combinação delas), o programa deve garantir que ele seja exibido com a primeira letra em maiúscula e as demais em minúsculas.<br>
+        
+              
+        💡 Dica: <br>
+         * Use slice(), toUpperCase() e toLowerCase().<br>       
+    </div>
+    <hr>
+
+    <div>        
+    
+    <label for="nome">Digite seu nome:</label><br>
+    <input type="text" id="nome" placeholder="Seu nome">
+    <button onclick="exibirMensagem()">Enviar</button>
+    <hr>
+    <p id="mensagem"></p>
+    <hr>
+    </div>
+    <script>
+        function exibirMensagem() {
+            // Obtém o nome do usuário
+            var nome = document.getElementById("nome").value.trim();
+
+            // Ajusta o nome para que a primeira letra seja maiúscula e as demais minúsculas
+            var nomeFormatado = nome.slice(0, 1).toUpperCase() + nome.slice(1).toLowerCase();
+
+            // Exibe a mensagem de boas-vindas personalizada
+            document.getElementById("mensagem").innerText = "Olá, " + nomeFormatado + ", seja bem-vindo(a)!";
+        }
+    </script>
+</body>
+</html>

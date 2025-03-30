@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula_02</title>
+</head>
+<body>
+    <div>
+   <h1 style="text-align: center; color: blue;">Questão 3 – Duelo de Dados 🎲⚔</h1>
+    <hr>    
+        * Crie um programa onde dois jogadores competem entre si em um lançamento de dados.<br>
+
+        * Regras do jogo:<br>
+
+        * Cada jogador escolhe um número entre 1 e 6.<br>
+        * O programa "rola" (gera um número aleatório entre 1 e 6).<br>
+        * O jogador cujo número sorteado estiver mais próximo do número escolhido vence.<br>
+        * Se houver empate, informe que foi um empate.<br>
+              
+        💡 Dica: <br>
+        * Use Math.random() para simular os dados.<br>
+        * Use Math.abs() para calcular a diferença entre o número escolhido e o sorteado.<br> 
+    </div>
+    <hr>
+     <div>
+    <p>Jogador 1, escolha um número (1 a 6):</p>
+    <input type="number" id="jogador1" min="1" max="6">
+    <hr>
+    <p>Jogador 2, escolha um número (1 a 6):</p>
+    <input type="number" id="jogador2" min="1" max="6">
+    <hr>
+    <button onclick="rolarDado()">Lançar Dados</button>
+    <hr>
+    <p id="resultado"></p>
+    </div>
+    <hr>
+    <script>
+        function rolarDado() {
+            // Obtém os números escolhidos pelos jogadores
+            var escolha1 = parseInt(document.getElementById("jogador1").value);
+            var escolha2 = parseInt(document.getElementById("jogador2").value);
+
+            // Verifica se as escolhas são válidas
+            if (escolha1 < 1 || escolha1 > 6 || isNaN(escolha1) ||
+                escolha2 < 1 || escolha2 > 6 || isNaN(escolha2)) {
+                document.getElementById("resultado").innerText = 
+                    "Ambos os jogadores devem escolher números entre 1 e 6.";
+                return;
+            }
+
+            // Gera os números aleatórios (resultado dos dados)
+            var dado = Math.floor(Math.random() * 6) + 1;
+
+            // Calcula as diferenças para determinar o vencedor
+            var diferenca1 = Math.abs(dado - escolha1);
+            var diferenca2 = Math.abs(dado - escolha2);
+
+            // Determina o resultado
+            var resultadoTexto = "O número sorteado foi " + dado + ". ";
+            if (diferenca1 < diferenca2) {
+                resultadoTexto += "Jogador 1 venceu!";
+            } else if (diferenca2 < diferenca1) {
+                resultadoTexto += "Jogador 2 venceu!";
+            } else {
+                resultadoTexto += "Foi um empate!";
+            }
+
+            // Exibe o resultado no navegador
+            document.getElementById("resultado").innerText = resultadoTexto;
+        }
+    </script>
+</body>
+</html>

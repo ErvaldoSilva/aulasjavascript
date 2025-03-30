@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula_02</title>
+</head>
+<body>
+    <div>
+    <h1 style="text-align: center; color: blue;">Questão 1 – Gerador de Senha Simples 🔐</h1>
+    <hr>        
+        * Peça ao usuário uma palavra e transforme-a em uma “senha segura”,seguindo estas regras:<br>
+
+        * Remova espaços extras.<br>
+        * Substitua a letra “a” por “@”, “i” por “1” e “o” por “0”.<br>
+        💡 Dica: Combine trim() e replace().<br>
+    </div>
+    <hr>    
+    <label for="palavra">Digite uma palavra:</label>
+    <input type="text" id="palavra">
+    <button onclick="criarSenhaSegura()">Gerar Senha</button>
+    <hr>
+    <p id="resultado"></p>
+    <hr>
+    <script>
+        function criarSenhaSegura() {
+            // Obtém o valor digitado no campo de entrada
+            var palavra = document.getElementById("palavra").value;
+
+            // Remove espaços extras e aplica as substituições
+            var senhaSegura = palavra.trim()
+                                     .replace(/a/g, "@")
+                                     .replace(/i/g, "1")
+                                     .replace(/o/g, "0");
+
+            // Exibe o resultado no parágrafo com id "resultado"
+            document.getElementById("resultado").innerText = "Sua senha segura é: " + senhaSegura;
+        }
+    </script>
+</body>

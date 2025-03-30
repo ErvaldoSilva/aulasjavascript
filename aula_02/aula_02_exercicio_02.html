@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula_02</title>
+</head>
+<body>
+    <div>
+   <h1 style="text-align: center; color: blue;">Questão 2 – Simulador de Lançamento de Dados 🎲</h1>
+    <hr>    
+        * Crie um programa que simula o lançamento de um dado de 6 lados. O usuário deve escolher um número entre 1 e 6, e o programa deve "rolar o dado" (gerar um número aleatório entre 1 e 6).<br>
+
+        * Se o número escolhido pelo usuário for igual ao resultado do dado, exiba "Parabéns, você acertou!".<br>
+
+        * Caso contrário, exiba "Que pena, o número sorteado foi X".<br>       
+        💡 💡 Dica: Use Math.random() e Math.floor().<br>
+    </div>
+    <hr>
+    <div>
+    <label for="escolha">Escolha um número (1 a 6):</label>
+    <input type="number" id="escolha" min="1" max="6">
+    <button onclick="rolarDado()">Rolar Dado</button>
+    <hr>
+    <p id="resultado"></p>
+    </div>
+    <hr>
+    <script>
+        function rolarDado() {
+            // Obtém o número escolhido pelo usuário
+            var escolha = parseInt(document.getElementById("escolha").value);
+
+            // Verifica se a entrada está entre 1 e 6
+            if (escolha < 1 || escolha > 6 || isNaN(escolha)) {
+                document.getElementById("resultado").innerText = "Por favor, escolha um número entre 1 e 6.";
+                return;
+            }
+
+            // Gera um número aleatório entre 1 e 6
+            var dado = Math.floor(Math.random() * 6) + 1;
+
+            // Compara o número escolhido com o resultado do dado
+            if (escolha === dado) {
+                document.getElementById("resultado").innerText = "Parabéns, você acertou!";
+            } else {
+                document.getElementById("resultado").innerText = "Que pena, o número sorteado foi " + dado + ".";
+            }
+        }
+    </script>
+</body>
+</html>
