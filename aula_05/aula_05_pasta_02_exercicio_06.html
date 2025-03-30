@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 6</title>
+    <style>
+        .realce {
+            color: red;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <h1 style="text-align: center; color: red;"> Removendo uma Classe</h1>
+    </div>
+    <hr>
+    <div>
+        * Objetivo: Remover uma classe de destaque de um texto.<br>
+    </div>
+    <hr>
+    <div>
+    <p id="texto" class="realce">Texto Importante</p>
+    <hr>
+    <button onclick="removerDestaque()">Remover Estilo</button>
+    </div>
+    <script>
+       function removerDestaque() {
+        // Seleciona o parágrafo pelo ID "texto"
+        var paragrafo = document.getElementById("texto");
+
+        // Remove a classe "realce" do parágrafo
+        paragrafo.classList.remove("realce");    }
+    </script>
+    <hr>
+    <div>
+        * Terefa: Crie a função removerDestaque() que:<br>
+        * Use classList.add para adicionar a classe "destaque" ao botão com id "botao" , aplicando o estilo de fundo amarelo e preto.<br>
+        
+    </div>
+    <hr>
+
+</body>
+</html>

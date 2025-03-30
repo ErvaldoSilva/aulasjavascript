@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4</title>
+</head>
+<body>
+
+    <div>
+        <h1 style="text-align: center; color: red;"> Tem o Atributo ?</h1>
+    </div>
+    <hr>
+    <div>
+        * Objetivo: Verificar se um campo de entrada possui o atributo disabled.<br>
+    </div>
+    <hr>
+    <div>
+
+    <input type="text" id="inputCampo" disabled>
+    <br>
+    <button onclick="verificarAtributo()">Verificar</button>
+    <p id="mensagem"></p>
+    </div>
+
+    <script>
+        function verificarAtributo() {
+        // Seleciona o campo de entrada pelo ID "inputCampo"
+        var campo = document.getElementById("inputCampo");
+
+        // Verifica se o campo possui o atributo "disabled"
+        if (campo.hasAttribute("disabled")) {
+            // Exibe a mensagem de que o campo está desativado
+            document.getElementById("mensagem").innerText = "O campo está desativado.";
+        } else {
+            // Exibe a mensagem de que o campo está ativo
+            document.getElementById("mensagem").innerText = "O campo está ativo.";
+        }
+    }
+
+    </script>
+
+    <hr>
+    <div>
+        * Terefa: Crie a função verificarAtributo() que:<br>
+        * Verifique se o campo de entrada com id "inputCampo" tem o atributo disabled usando hasAttribute.<br>
+        Exiba no parágrafo com id "mensagem" a mensagem "O campo está desativado." ou "O campo está ativo.".<br>
+        
+    </div>
+    <hr>
+</body>
+</html>

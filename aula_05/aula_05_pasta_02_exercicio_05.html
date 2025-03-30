@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 5</title>
+    <style>
+        .destaque {
+            background-color: yellow;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <h1 style="text-align: center; color: red;"> Adicionando uma Classe</h1>
+    </div>
+    <hr>
+    <div>
+        * Objetivo: Aplicar uma classe de estilo a um botão.<br>
+    </div>
+    <hr>
+
+    <button id="botao">Clique Aqui</button>
+    <button onclick="destacarBotao()">Destacar</button>
+
+    <script>
+        function destacarBotao() {
+        // Seleciona o botão pelo ID "botao"
+        let botao = document.getElementById("botao");
+
+        // Adiciona a classe "destaque" ao botão
+        botao.classList.add("destaque");
+    }
+
+    </script>
+    <hr>
+    <div>
+        * Terefa: Crie a função destacarBotao()que:<br>
+        * Use classList.add para adicionar a classe "destaque" ao botão com id "botao" , aplicando o estilo de fundo amarelo e preto.<br>
+        
+    </div>
+    <hr>
+</body>
+</html>

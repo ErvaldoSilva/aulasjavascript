@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+</head>
+<body>
+    <div>
+        <h1 style="text-align: center; color: red;"> Obtenha um Atributo</h1>
+    </div>
+    <hr>
+    <div>
+        * Objetivo: Ler o valor do atributo href de um link usando getAttribute.<br>
+    </div>
+    <div>
+    <hr>
+    <a id="meuLink" href="https://www.google.com">Google</a>
+    <button onclick="mostrarHref()">Mostrar URL</button>
+    <hr>
+    <p id="resultado"></p>
+    </div>
+    <script>
+       function mostrarHref() {
+        // Seleciona o link pelo ID "meuLink"
+        var link = document.getElementById("meuLink");
+
+        // Obtém o valor do atributo href usando getAttribute
+        var url = link.getAttribute("href");
+
+        // Exibe a URL no parágrafo com id "resultado"
+        document.getElementById("resultado").innerText = "URL: " + url;
+    }
+
+    </script>
+    <hr>
+    <div>
+        * Crie a função mostrarHref()que:<br>
+        * Pegue o atributo href do link com id "meuLink" usando getAttribute.<br>
+        * Exiba a URL dentro do parágrafo com id "resultado" .<br>
+    </div>
+    <hr>
+</body>
+</html>

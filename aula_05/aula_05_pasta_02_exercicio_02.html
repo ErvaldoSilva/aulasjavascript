@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+</head>
+<body>
+
+    <div>
+        <h1 style="text-align: center; color: red;"> Adicionando um Atributo</h1>
+    </div>
+    <hr>
+    <div>
+        * Objetivo: Adicionar um atributo disableda um botão usando setAttribute.<br>
+    </div>
+
+    <div>
+    <hr>
+    <button id="meuBotao">Clique Aqui</button>
+    <hr>
+    <button onclick="desativarBotao()">Desativar</button>
+
+    <script>
+        function desativarBotao() {
+        // Seleciona o botão pelo ID "meuBotao"
+        var botao = document.getElementById("meuBotao");
+
+        // Adiciona o atributo "disabled" ao botão
+        botao.setAttribute("disabled", "true");
+    }
+    </script>
+    <hr>
+    <div>
+        * Terefa: Crie a função desativarBotao()que:<br>
+        * Use setAttributepara adicionar o atributo disabledao botão com id "meuBotao" , impedindo que ele seja clicado.<br>
+        
+    </div>
+    <hr>
+</body>
+</html>

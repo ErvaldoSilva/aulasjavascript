@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+</head>
+<body>
+    <div>
+        <h1 style="text-align: center; color: blue;"> Alterando a Cor de Vários Elementos</h1>
+    </div>
+    <hr>
+    <div>
+        Objetivo: Modificar o cor de elementos de uma mesma classe usando getElementsByClassNamee style.<br>
+    </div>
+    <hr>
+    <div>
+    <h2 class="titulo">Título 1</h2>
+    <h2 class="titulo">Título 2</h2>
+    <h2 class="titulo">Título 3</h2>
+    </div>
+    <hr>
+    <div>
+    <button onclick="mudarCor()">Mudar Cor</button>
+    </div>
+    <hr>
+    <div>
+        Tarefa: Crie uma conta mudarCor()que:<br>
+        Selecione todos os elementos com a classe "titulo"usando getElementsByClassName.<br>
+        Mude o cor do texto de todos para vermelho.<br>
+    </div>
+    <hr>
+
+    <script>
+        // Função para mudar a cor dos elementos com a classe "titulo"
+        function mudarCor() {
+            // Seleciona todos os elementos com a classe "titulo"
+            const elementos = document.getElementsByClassName('titulo');
+            
+            // Itera sobre os elementos e altera a cor do texto para vermelho
+            for (let i = 0; i < elementos.length; i++) {
+                elementos[i].style.color = 'red';
+            }
+        }
+    </script>
+</body>
+</html>

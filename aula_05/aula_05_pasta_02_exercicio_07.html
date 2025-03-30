@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 7</title>
+    <style>
+        .ativo {
+            background-color: green;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <h1 style="text-align: center; color: red;"> Possui a Classe ?</h1>
+    </div>
+    <hr>
+    <div>
+        * Objetivo: Checar se um botão possui uma classe específica e exibir uma mensagem.<br>
+    </div>
+    <hr>
+    <div>
+    <button id="meuBotao" class="ativo">Botão</button>    
+    <button onclick="verificarClasse()">Verificar</button>
+    <hr>
+    <p id="resultado"></p>
+    </div>
+    <script>
+       function verificarClasse() {
+        // Seleciona o botão pelo ID "meuBotao"
+        var botao = document.getElementById("meuBotao");
+
+        // Verifica se o botão possui a classe "ativo"
+        if (botao.classList.contains("ativo")) {
+            // Exibe a mensagem "O botão está ativo."
+            document.getElementById("resultado").innerText = "O botão está ativo.";
+        } else {
+            // Exibe a mensagem "O botão não está ativo."
+            document.getElementById("resultado").innerText = "O botão não está ativo.";
+        }
+    }
+
+
+    </script>
+
+    <hr>
+    <div>
+        * Terefa: Crie a função verificarClasse() que:<br>
+        * Use classList.contains para verificar se o botão tem a classe "ativo".<br>
+        * Exiba a mensagem "O botão está ativo." ou "O botão não está ativo." no parágrafo com id "resultado.<br>
+        * Refaça usando classList.toggle.<br>
+        
+    </div>
+    <hr>
+</body>
+</html>

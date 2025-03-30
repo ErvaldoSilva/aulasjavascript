@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3</title>
+</head>
+<body>
+    <div>
+        <h1 style="text-align: center; color: blue;"> Pegando o Nome de um Input</h1>
+    </div>
+    <hr>
+    <div>
+        Objetivo: Obter e exibir o valor digitado em um campo de entrada usando getElementsByNamee innerText.<br>
+    </div>
+    <hr>
+    <div>
+    <label>Nome: <input type="text" name="nome"></label>
+    <button onclick="mostrarNome()">Enviar</button>
+    <hr>
+    <p id="resultado"></p>
+    </div>
+
+    <script>
+        function mostrarNome() {
+        // Obtém o valor do campo de entrada pelo atributo name="nome"
+        var nome = document.getElementsByName("nome")[0].value;
+        
+        // Exibe o valor digitado no parágrafo com id "resultado"
+        document.getElementById("resultado").innerText = "Nome digitado: " + nome;
+    }
+
+    </script>
+    <hr>
+    <div>
+        Tarefa: Crie uma conta mudarCor()que:<br>
+        Selecione todos os elementos com a classe "titulo"usando getElementsByClassName.<br>
+        Mude o cor do texto de todos para vermelho.<br>
+    </div>
+    <hr>
+</body>
+</html>

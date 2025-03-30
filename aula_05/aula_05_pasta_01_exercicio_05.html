@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 5</title>
+</head>
+<body>
+    <div>
+        <h1 style="text-align: center; color: blue;"> Selecionando Vários Elementos</h1>
+    </div>
+    <hr>
+    <div>
+        * Usar querySelectorAll para modificar vários elementos ao mesmo tempo.<br>
+    </div>
+    <div>
+    <hr>
+    <ul>
+        <li class="item">Item 1</li>
+        <li class="item">Item 2</li>
+        <li class="item">Item 3</li>
+    </ul>
+    <hr>
+    <button onclick="destacarItens()">Destacar</button>
+    </div>
+    <script>
+    function destacarItens() {
+        // Seleciona todos os elementos <li> com a classe "item" usando querySelectorAll
+        var itens = document.querySelectorAll(".item");
+
+        // Itera sobre cada elemento da lista e aplica um fundo amarelo
+        itens.forEach(function(item) {
+            item.style.backgroundColor = "yellow";
+        });
+    }
+</script>
+<hr>
+    <div>
+        * Crie uma conta destacarItens()que:<br>
+        * Use querySelectorAllpara selecionar todos os elementos <'li'>da classe "item".<br>
+        * Aplique um fundo amarelo em cada um dos itens da lista.<br>
+    </div>
+    <hr>
+</body>
+</html>

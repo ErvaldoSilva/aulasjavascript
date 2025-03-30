@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+</head>
+<body>
+    <div>
+        <h1 style="text-align: center; color: blue;"> Modificando um Parágrafo</h1>
+    </div>
+    <div>
+        Objetivo: Alterar o conteúdo de um parágrafo utilizando getElementByIde innerText.<br>
+    </div>
+    <hr>
+    <div>
+    <p id="mensagem">Texto original.</p>
+    </div>
+    <hr>
+    <button onclick="alterarTexto()">Clique aqui</button>
+    <hr>
+    <div>
+        Terefa: Na tag <'script'>, escreva uma função chamada alterarTexto()que:<br>
+        Selecione o parágrafo pelo id "mensagem" usando getElementById.<br>
+        Alterar o texto para "Texto alterado com sucesso!".<br>
+
+    </div>
+    <script>
+        // Função para alterar o texto do parágrafo
+        function alterarTexto() {
+            // Seleciona o elemento <p> pelo ID "mensagem"
+            const paragrafo = document.getElementById('mensagem');
+            // Altera o texto do parágrafo
+            paragrafo.innerText = 'Texto alterado com sucesso!';
+        }
+    </script>
+</body>
+</html>

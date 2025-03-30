@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4</title>
+</head>
+<body>
+    <div>
+        <h1 style="text-align: center; color: blue;"> Alterando a Fonte de um Elemento</h1>
+    </div>
+    <hr>
+    <div>
+        * Usar querySelector para modificar o estilo de um elemento.<br>
+    </div>
+    <hr>
+    <div>
+    <p st class="texto">Este é um texto de teste.</p>
+    <hr>
+    <button onclick="alterarFonte()">Mudar Fonte</button>
+    </div>
+    <script>
+        function alterarFonte() {
+        // Seleciona o parágrafo pela classe "texto" usando querySelector
+        var paragrafo = document.querySelector(".texto");
+        
+        // Altera a fonte para "Arial"
+        paragrafo.style.fontFamily = "Arial";
+        
+        // Aumenta o tamanho da fonte para 20px
+        paragrafo.style.fontSize = "20px";
+
+        // Mudar a cor da fonte para vermelho, por minha conta pois não estava no exercicio.
+        paragrafo.style.color = "red";
+    }
+    </script>
+    <hr>
+    <div>
+        * Tarefa: Crie uma conta alterarFonte()que:<br>
+        * Use querySelectorpara selecionar o parágrafo da classe "texto".<br>
+        * Altere a fonte para "Arial"e aumente o tamanho da fonte para 20px .<br>
+    </div>
+    <hr>
+</body>
+</html>
