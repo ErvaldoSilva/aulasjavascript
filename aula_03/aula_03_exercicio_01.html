@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula_03</title>
+</head>
+<body>
+    <div>
+    <h1 style="text-align: center; color: blue;">1. Calculadora Simples</h1>
+    <hr>    
+        * Crie uma função chamada calcular que recebe três parâmetros:<br><br>
+
+        * Dois números<br>
+        * Um operador (+, -, *, /, %)<br>        
+        * A função deve retornar o resultado da operação correspondente. Se os dois primeiros parâmetros não forem números, exiba uma mensagem informando o erro. Se o operador for inválido, exiba uma mensagem informando o erro. Defina valores padrões para os parâmetros para o caso do usuário não informá-los.<br>       
+    </div>
+    <hr>
+    <div>
+    
+    <label for="numero1">Número 1:</label>
+    <input type="number" id="numero1" placeholder="Digite o primeiro número">
+    <br><hr>
+    <label for="numero2">Número 2:</label>
+    <input type="number" id="numero2" placeholder="Digite o segundo número">
+    <br><hr>
+    <label for="operador">Operador (+, -, *, /, %):</label><br>
+    <input type="text" id="operador" placeholder="Escolha um operador">
+    <br><hr>
+    <button onclick="executarCalculo()">Calcular</button>
+    <hr>
+    Resultado:
+    <p style="font-size: 25px; color: blue;" id="resultado"></p>
+
+    <hr>
+    </div>
+    <script>
+        function calcular(numero1 = 0, numero2 = 0, operador = "+") {
+            // Verifica se os dois primeiros parâmetros são números
+            if (isNaN(numero1) || isNaN(numero2)) {
+                return "Erro: Os dois primeiros parâmetros devem ser números.";
+            }
+
+            // Realiza a operação baseada no operador
+            switch (operador) {
+                case "+":
+                    return numero1 + numero2;
+                case "-":
+                    return numero1 - numero2;
+                case "*":
+                    return numero1 * numero2;
+                case "/":
+                    // Verifica divisão por zero
+                    if (numero2 === 0) return "Erro: Divisão por zero não é permitida.";
+                    return numero1 / numero2;
+                case "%":
+                    return numero1 % numero2;
+                default:
+                    return "Erro: Operador inválido. Use +, -, *, / ou %.";
+            }
+        }
+
+        function executarCalculo() {
+            // Obtém os valores dos campos de entrada
+            var numero1 = parseFloat(document.getElementById("numero1").value);
+            var numero2 = parseFloat(document.getElementById("numero2").value);
+            var operador = document.getElementById("operador").value.trim();
+
+            // Chama a função calcular e exibe o resultado
+            var resultado = calcular(numero1, numero2, operador);
+            document.getElementById("resultado").innerText = "Resultado: " + resultado;
+        }
+    </script>
+</body>
+</html>

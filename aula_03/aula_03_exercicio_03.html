@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorteio de Números</title>
+</head>
+<body>
+
+    <div>
+    <h1 style="text-align: center; color: blue;">3. Simulador de Sorteio</h1>
+    <hr>    
+        * Crie uma função chamada sorteio que recebe dois números representando um intervalo e sorteia um número aleatório dentro desse intervalo.<br><br>    
+    </div>
+    <hr>    
+
+    <div>    
+    <label for="minimo">Número Mínimo:</label>
+    <input type="number" id="minimo" placeholder="Digite o valor mínimo">
+    <br><br>
+    <label for="maximo">Número Máximo:</label>
+    <input type="number" id="maximo" placeholder="Digite o valor máximo">
+    <br><hr>
+    <button onclick="executarSorteio()">Sortear</button>
+    <hr>
+    <p id="resultado"></p>
+    <hr>
+    </div>
+    <script>
+        // Função para gerar um número aleatório no intervalo
+        function sorteio(min, max) {
+            // Garante que os parâmetros são números
+            if (isNaN(min) || isNaN(max) || min > max) {
+                return "Erro: Certifique-se de que os valores são válidos e que o mínimo é menor ou igual ao máximo.";
+            }
+
+            // Gera e retorna um número aleatório no intervalo [min, max]
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        // Função para capturar a entrada do usuário e exibir o resultado
+        function executarSorteio() {
+            // Obtém os valores digitados pelo usuário
+            var minimo = parseInt(document.getElementById("minimo").value);
+            var maximo = parseInt(document.getElementById("maximo").value);
+
+            // Chama a função sorteio e exibe o resultado
+            var resultado = sorteio(minimo, maximo);
+            document.getElementById("resultado").innerText = "Número sorteado: " + resultado;
+        }
+    </script>
+</body>
+</html>

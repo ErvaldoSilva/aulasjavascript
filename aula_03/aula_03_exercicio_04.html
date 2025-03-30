@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula_03</title>
+</head>
+<body>
+
+    <div>
+    <h1 style="text-align: center; color: blue;">4. Calculadora Automática</h1>
+    <hr>    
+        * Crie um programa que simula uma calculadora automática que executa operações matemáticas a cada 2 segundos de forma aleatória.<br><br>
+
+        * 📌 Requisitos:<br><br>
+
+        * 1. Sortear dois números inteiros entre 0 e 99.<br>
+
+        * 2. Sortear uma operação entre:
+            * Soma (+)
+            * Subtração (-)
+            * Multiplicação (*)
+            * Divisão (/)
+            * Resto da divisão (%)<br>
+        * 3. Utilizar funções de alta ordem para tornar o código modular e reutilizável.<br>
+        * 4. Exibir o cálculo realizado no formato:<br>
+            * Exemplo: 42 + 15 = 57<br>
+        * 5. Para divisão e resto da divisão, se o segundo número for 0, exibir a mensagem de erro "Error: divisão por zero" e gerar uma nova operação sem interromper o programa.<br>
+        * 6. Melhoria Extra: Exibir os resultados da divisão e do resto da divisão com duas casas decimais.<br>
+        * 7. O programa deve rodar infinitamente até ser interrompido manualmente.<br>
+    </div>
+    <hr>
+    <div>    
+    <p style="font-size: 45px; color: red;" id="resultado"></p>
+    </div>
+    <hr>
+    <script>
+        // Função para gerar um número aleatório entre dois valores
+        function gerarNumeroAleatorio(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        // Função de alta ordem que realiza uma operação matemática
+        function calcular(num1, num2, operacao) {
+            switch (operacao) {
+                case '+':
+                    return `${num1} + ${num2} = ${num1 + num2}`;
+                case '-':
+                    return `${num1} - ${num2} = ${num1 - num2}`;
+                case '*':
+                    return `${num1} * ${num2} = ${num1 * num2}`;
+                case '/':
+                    if (num2 === 0) {
+                        return "Error: divisão por zero";
+                    }
+                    return `${num1} / ${num2} = ${(num1 / num2).toFixed(2)}`;
+                case '%':
+                    if (num2 === 0) {
+                        return "Error: divisão por zero";
+                    }
+                    return `${num1} % ${num2} = ${(num1 % num2).toFixed(2)}`;
+                default:
+                    return "Operação inválida";
+            }
+        }
+
+        // Função para executar uma operação matemática aleatória a cada 2 segundos
+        function executarCalculadora() {
+            const operacoes = ['+', '-', '*', '/', '%'];
+
+            setInterval(() => {
+                const num1 = gerarNumeroAleatorio(0, 99);
+                const num2 = gerarNumeroAleatorio(0, 99);
+                const operacao = operacoes[gerarNumeroAleatorio(0, operacoes.length - 1)];
+
+                const resultado = calcular(num1, num2, operacao);
+
+                // Exibe o cálculo realizado no navegador
+                document.getElementById("resultado").innerText = resultado;
+            }, 2000); // Define intervalo de 2 segundos
+        }
+
+        // Inicia o programa ao carregar a página
+        executarCalculadora();
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula_03</title>
+</head>
+<body>
+    <div>
+    <h1 style="text-align: center; color: blue;">2. Verificador de Números Primos</h1>
+    <hr>    
+        * Crie uma função chamada ehPrimo que recebe um número inteiro positivo e retorna true se for primo e false caso contrário. Certifique-se de que o valor recebido é um número.<br><br>
+
+        📌 Regras:<br><br>
+        * Um número primo só é divisível por 1 e por ele mesmo.<br>        
+        * Use um for para verificar se há divisores além do 1 e dele mesmo.<br>
+        * Retorne false assim que encontrar um divisor.<br>       
+    </div>
+    <hr>    
+
+    <div>
+    <label for="numero">Digite um número inteiro positivo:</label>
+    <input type="number" id="numero" min="1" placeholder="Número">
+    <button onclick="verificarPrimo()">Verificar</button>
+    <hr>
+    <p id="resultado"></p>
+    <hr>
+    </div>
+
+    <script>
+        function ehPrimo(numero) {
+            // Certifica-se de que o valor recebido é um número
+            if (isNaN(numero) || numero <= 1 || !Number.isInteger(numero)) {
+                return false;
+            }
+
+            // Verifica se há divisores além de 1 e o próprio número
+            for (var i = 2; i < numero; i++) {
+                if (numero % i === 0) {
+                    return false; // Retorna false ao encontrar um divisor
+                }
+            }
+            return true; // Retorna true se for primo
+        }
+
+        function verificarPrimo() {
+            // Obtém o valor inserido pelo usuário
+            var numero = parseInt(document.getElementById("numero").value);
+
+            // Valida e exibe o resultado
+            if (ehPrimo(numero)) {
+                document.getElementById("resultado").innerText = 
+                    "O número " + numero + " é primo.";
+            } else {
+                document.getElementById("resultado").innerText = 
+                    "O número " + numero + " não é primo.";
+            }
+        }
+    </script>
+</body>
+</html>

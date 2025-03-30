@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula_03</title>
+</head>
+<body>
+
+    <div>
+    <h1 style="text-align: center; color: blue;">5. DESAFIO – Função Geradora de CPF Aleatório</h1>
+    <hr>    
+        * Crie uma função chamada gerarCPF que gera um CPF aleatório no formato "XXX.XXX.XXX-XX", onde cada X é um número entre 0 e 9.<br><br>
+
+    </div>
+    <hr>
+    <div>     
+    <button onclick="gerarCPF()">Gerador de CPF:</button>
+    <hr>
+    <p style="font-size:60px; color: red;" id="resultado"></p>
+    </div>
+    <hr>
+    <script>
+        function gerarCPF() {
+            // Gera uma sequência de números aleatórios
+            function gerarNumeros(qtd) {
+                let numeros = "";
+                for (let i = 0; i < qtd; i++) {
+                    numeros += Math.floor(Math.random() * 10);
+                }
+                return numeros;
+            }
+
+            // Gera cada parte do CPF
+            const bloco1 = gerarNumeros(3);
+            const bloco2 = gerarNumeros(3);
+            const bloco3 = gerarNumeros(3);
+            const digitos = gerarNumeros(2);
+
+            // Monta o CPF no formato desejado
+            const cpf = `${bloco1}.${bloco2}.${bloco3}-${digitos}`;
+
+            // Exibe o CPF no navegador
+            document.getElementById("resultado").innerText = "CPF gerado: " + cpf;
+        }
+    </script>
+</body>
+</html>
