@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3</title>
+    <style>
+        .destaque1 {
+            color: red;
+            background-color: lightcoral;
+        }
+
+        .destaque2 {
+            color: blue;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1 style="text-align: center;  font-size: 50px; color: red;">3️⃣ Mudar o Estilo do Primeiro e Último Filho:</h1>
+    </div>
+    <hr>
+    <div id="box">
+        <p>Item 1</p>
+        <p>Item 2</p>
+        <p>Item 3</p>
+        <p>Item 4</p>
+    </div>
+    <button id="firstBtn">Mudar Estilo Primeiro</button>
+    <button id="lastBtn">Mudar Estilo Último</button>
+
+    <script>
+      
+document.getElementById('firstBtn').addEventListener('click', function() {
+    const primeiroFilho = document.getElementById('box').firstElementChild; // Seleciona o primeiro filho
+    primeiroFilho.classList.toggle('destaque1'); // Adiciona ou remove a classe 'destaque1'
+});
+
+document.getElementById('lastBtn').addEventListener('click', function() {
+    const ultimoFilho = document.getElementById('box').lastElementChild; // Seleciona o último filho
+    ultimoFilho.classList.toggle('destaque2'); // Adiciona ou remove a classe 'destaque2'
+});
+
+    </script>
+</body>
+</html>

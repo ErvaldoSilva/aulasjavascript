@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercício 5</title>
+</head>
+<body>
+    <div>
+        <h1 style="text-align: center;  font-size: 50px; color: red;">5️⃣ Substituindo um Elemento:</h1>
+    </div>
+    <hr>
+    <div>
+        <h2>Objetivo:</h2>        
+        <h4> Crie um botão que substitua um título <'h2'>por um novo título <'h2'>com outro texto. O novo título deve ter o texto "Título Substituído!".</h4>
+    </div>
+    <hr>
+    <div id="titleContainer">
+        <h2 id="mainTitle">Título Original</h2>
+    </div>
+    <button id="replaceTitle">Substituir Título</button>
+
+    <script>
+       
+    // Seleciona o botão pelo ID
+    const replaceButton = document.getElementById("replaceTitle");
+    // Seleciona o container que contém o título
+    const titleContainer = document.getElementById("titleContainer");
+
+    // Adiciona um evento de clique ao botão
+    replaceButton.addEventListener("click", () => {
+        // Cria um novo elemento <h2>
+        const newTitle = document.createElement("h2");
+        // Define o texto do novo título
+        newTitle.textContent = "Título Substituído!";
+
+        // Seleciona o título existente
+        const oldTitle = document.getElementById("mainTitle");
+        // Substitui o título antigo pelo novo
+        titleContainer.replaceChild(newTitle, oldTitle);
+    });
+</script>
+
+</body>
+</html>

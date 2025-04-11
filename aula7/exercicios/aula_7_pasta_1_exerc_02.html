@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+</head>
+<body>
+    <div>
+        <h1 style="text-align: center;  font-size: 50px; color: red;">2️⃣ Contar Elementos Filhos:</h1>
+    </div>
+    <hr>
+
+
+    <div id="box">
+        <p>Item 1</p>
+        <p>Item 2</p>
+        <p>Item 3</p>
+        <p>Item 4</p>
+    </div>
+    <button id="countBtn">Contar Filhos</button>
+    <p id="result"></p>
+
+    <script>
+        
+document.getElementById('countBtn').addEventListener('click', function() {
+    const box = document.getElementById('box');
+    const totalFilhos = box.children.length; // Conta os elementos filhos
+    document.getElementById('result').textContent = `Total de filhos: ${totalFilhos}`;
+});
+
+
+    </script>
+</body>
+</html>

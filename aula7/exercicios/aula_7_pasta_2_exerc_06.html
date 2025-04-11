@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercício 6</title>
+</head>
+<body>
+    <div>
+        <h1 style="text-align: center;  font-size: 50px; color: red;">6️⃣ Clonando um Elemento:</h1>
+    </div>
+    <hr>
+    <div>
+        <h2>Objetivo:</h2>        
+        <h4> Crie um botão que clone um parágrafo existente e os acréscimos abaixo dele. O parágrafo deve ser copiado com o conteúdo.</h4><p>
+    </div>
+    <hr>
+
+    <div id="textContainer">
+        <p id="text">Este parágrafo será clonado.</p>   
+    </div>
+    <button id="cloneText">Clonar Parágrafo</button>
+
+    <script>
+      
+    // Seleciona o botão pelo ID
+    const cloneButton = document.getElementById("cloneText");
+    // Seleciona o container onde está o parágrafo
+    const textContainer = document.getElementById("textContainer");
+
+    // Adiciona um evento de clique ao botão
+    cloneButton.addEventListener("click", () => {
+        // Seleciona o parágrafo a ser clonado
+        const paragraphToClone = document.getElementById("text");
+        // Clona o parágrafo (com true para clonar o conteúdo também)
+        const clonedParagraph = paragraphToClone.cloneNode(true);
+        // Adiciona o parágrafo clonado abaixo do original
+        textContainer.appendChild(clonedParagraph);
+    });
+</script>
+
+</body>
+</html>

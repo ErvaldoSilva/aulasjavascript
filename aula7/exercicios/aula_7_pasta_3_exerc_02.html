@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input {
+            display: block;
+            margin: 10px 0;
+            padding: 5px;
+        }
+        button {
+            margin: 5px;
+            padding: 8px;
+            cursor: pointer;
+        }
+        .output {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1 style="text-align: center;  font-size: 50px; color: red;">2️⃣ Armazenando um Objeto no LocalStorage:</h1>
+    </div>
+    <hr>
+    <div>
+        <h2>Objetivo:</h2>        
+        <h4> Crie um sistema onde o usuário insira seu nome, email e telefone em um formulário. Ao clicar no botão "Salvar Contato", as informações devem ser armazenadas como um objeto JSON no LocalStorage. Ao clicar no botão "Exibir Contato", os dados devem ser recuperados e exibidos na página.</h4><p>
+
+        <h2>Requisitos:</h2>        
+        <h4> Converta o objeto para JSON usando JSON.stringify()antes de armazenar.<p>
+            Recupera e converte volta para objeto com JSON.parse().</h4>
+    </div>
+    <hr>
+
+    <h2>Armazenando um Objeto</h2>
+    <input type="text" id="nomeObj" placeholder="Nome">
+    <input type="email" id="emailObj" placeholder="Email">
+    <input type="tel" id="telefoneObj" placeholder="Telefone">
+    <button id="salvarObjeto">Salvar Contato</button>
+    <button id="carregarObjeto">Exibir Contato</button>
+    <div class="output" id="resultadoObjeto"></div>
+
+    <script>
+       
+    // Seleciona os elementos do formulário e o botão
+    const nomeInput = document.getElementById("nomeObj");
+    const emailInput = document.getElementById("emailObj");
+    const telefoneInput = document.getElementById("telefoneObj");
+    const salvarButton = document.getElementById("salvarObjeto");
+    const carregarButton = document.getElementById("carregarObjeto");
+    const resultadoDiv = document.getElementById("resultadoObjeto");
+
+    // Evento para salvar os dados no localStorage
+    salvarButton.addEventListener("click", () => {
+        const contato = {
+            nome: nomeInput.value, // Captura o valor do nome
+            email: emailInput.value, // Captura o valor do email
+            telefone: telefoneInput.value // Captura o valor do telefone
+        };
+
+        if (contato.nome && contato.email && contato.telefone) {
+            // Converte o objeto para JSON e armazena no localStorage
+            localStorage.setItem("contato", JSON.stringify(contato));
+            alert("Contato salvo com sucesso!");
+            nomeInput.value = ""; // Limpa o campo de nome
+            emailInput.value = ""; // Limpa o campo de email
+            telefoneInput.value = ""; // Limpa o campo de telefone
+        } else {
+            alert("Por favor, preencha todos os campos.");
+        }
+    });
+
+    // Evento para carregar os dados do localStorage
+    carregarButton.addEventListener("click", () => {
+        const contatoJSON = localStorage.getItem("contato"); // Recupera os dados armazenados como JSON
+
+        if (contatoJSON) {
+            // Converte os dados de JSON para um objeto
+            const contato = JSON.parse(contatoJSON);
+            // Exibe os dados na tela
+            resultadoDiv.textContent = `Nome: ${contato.nome}, Email: ${contato.email}, Telefone: ${contato.telefone}`;
+        } else {
+            resultadoDiv.textContent = "Nenhum contato armazenado.";
+        }
+    });
+</script>
+</body>
+</html>

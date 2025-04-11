@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas - LocalStorage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        input {
+            padding: 8px;
+            margin: 10px;
+        }
+        button {
+            padding: 8px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background: #f0f0f0;
+            padding: 10px;
+            margin: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 5px;
+        }
+        .delete-btn {
+            background: red;
+            color: white;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Gerenciador de Tarefas</h2>
+
+    <input type="text" id="tarefa" placeholder="Digite uma tarefa">
+    <button onclick="adicionarTarefa()">Adicionar</button>
+    <button onclick="limparTarefas()">Limpar Tudo</button>
+
+    <ul id="listaTarefas"></ul>
+
+    <script>
+       
+// Array para armazenar as tarefas
+let tarefas = JSON.parse(localStorage.getItem('tarefas')) || [];
+
+// Função para atualizar a lista de tarefas na tela
+function atualizarLista() {
+    const listaTarefas = document.getElementById('listaTarefas');
+    listaTarefas.innerHTML = '';
+
+    tarefas.forEach((tarefa, index) => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+            <span onclick="marcarComoConcluida(this)" style="cursor: pointer;">${tarefa.concluida ? `<s>${tarefa.texto}</s>` : tarefa.texto}</span>
+            <button class="delete-btn" onclick="removerTarefa(${index})">Remover</button>
+        `;
+        listaTarefas.appendChild(li);
+    });
+}
+
+// Função para adicionar uma nova tarefa
+function adicionarTarefa() {
+    const input = document.getElementById('tarefa');
+    const texto = input.value.trim();
+
+    if (texto) {
+        tarefas.push({ texto, concluida: false });
+        localStorage.setItem('tarefas', JSON.stringify(tarefas));
+        input.value = '';
+        atualizarLista();
+    } else {
+        alert('Digite uma tarefa antes de adicionar!');
+    }
+}
+
+// Função para remover uma tarefa específica
+function removerTarefa(index) {
+    tarefas.splice(index, 1);
+    localStorage.setItem('tarefas', JSON.stringify(tarefas));
+    atualizarLista();
+}
+
+// Função para limpar todas as tarefas
+function limparTarefas() {
+    if (confirm('Tem certeza que deseja apagar todas as tarefas?')) {
+        tarefas = [];
+        localStorage.removeItem('tarefas');
+        atualizarLista();
+    }
+}
+
+// Função para marcar uma tarefa como concluída
+function marcarComoConcluida(elemento) {
+    const index = [...elemento.parentNode.parentNode.children].indexOf(elemento.parentNode);
+    tarefas[index].concluida = !tarefas[index].concluida;
+    localStorage.setItem('tarefas', JSON.stringify(tarefas));
+    atualizarLista();
+}
+// Inicializar a lista ao carregar a página
+atualizarLista();
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4</title>
+</head>
+<body>
+    <div>
+        <h1 style="text-align: center;  font-size: 50px; color: red;">4️⃣ Percorrendo Elementos Irmãos:</h1>
+    </div>
+    <hr>
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+    </ul>
+
+    <script>
+      
+// Adiciona estilos ao próximo e ao anterior elemento
+document.querySelectorAll('li').forEach(item => {
+    item.addEventListener('click', function() {
+        // Remove estilos de todos os elementos antes de aplicar novos
+        resetEstilos();
+
+        // Aplica estilo ao próximo irmão (se existir)
+        if (this.nextElementSibling) {
+            this.nextElementSibling.style.fontWeight = 'bold'; // Negrito
+        }
+
+        // Aplica estilo ao anterior irmão (se existir)
+        if (this.previousElementSibling) {
+            this.previousElementSibling.style.textDecoration = 'underline'; // Sublinhado
+        }
+    });
+});
+
+// Botão para resetar os estilos
+const botaoReset = document.createElement('button');
+botaoReset.textContent = 'Reset';
+document.body.appendChild(botaoReset);
+
+botaoReset.addEventListener('click', resetEstilos);
+
+// Função para remover todos os estilos aplicados
+function resetEstilos() {
+    document.querySelectorAll('li').forEach(item => {
+        item.style.fontWeight = ''; // Remove negrito
+        item.style.textDecoration = ''; // Remove sublinhado
+    });
+}
+
+    </script>
+</body>
+</html>

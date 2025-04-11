@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercício 3</title>
+</head>
+<body>
+    <div>
+        <h1 style="text-align: center;  font-size: 50px; color: red;">3️⃣ Removendo um Elemento ao Clicá-lo:</h1>
+    </div>
+    <hr>
+    <div>
+        <h2>Objetivo:</h2>        
+        <h4> Crie uma lista com dois itens e um botão que insira um novo item antes do segundo item da lista. O novo item deve ter o texto "Item inserido antes do segundo".</h4>
+    </div>
+    <hr>
+    
+    <p id="removable">Clique para remover este parágrafo.</p>
+
+    <script>
+       
+    // Seleciona o parágrafo pelo ID
+    const paragraph = document.getElementById("removable");
+
+    // Adiciona um evento de clique ao parágrafo
+    paragraph.addEventListener("click", () => {
+        // Remove o próprio parágrafo do DOM
+        paragraph.remove();
+    });
+</script>
+
+
+    </script>
+</body>
+</html>

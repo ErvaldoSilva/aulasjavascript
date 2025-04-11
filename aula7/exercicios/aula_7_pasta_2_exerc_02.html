@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercício 2</title>
+</head>
+<body>
+    <div>
+        <h1 style="text-align: center;  font-size: 50px; color: red;">2️⃣ Removendo um Elemento Específico:</h1>
+    </div>
+    <hr>
+    <div>
+        <h2>Objetivo:</h2>        
+        <h4> Crie uma lista com três itens e um botão que remove o último item da lista quando clicado. Se não houver mais itens na lista lance um alertinformando que todos os itens já foram removidos.</h4>
+    </div>
+    <hr>
+
+    <ul id="itemList">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+    <button id="removeItem">Remover Último Item</button>
+
+    <script>
+     
+    // Seleciona o botão pelo ID
+    const removeButton = document.getElementById("removeItem");
+    // Seleciona a lista pelo ID
+    const itemList = document.getElementById("itemList");
+
+    // Adiciona um evento de clique ao botão
+    removeButton.addEventListener("click", () => {
+        // Verifica se há itens na lista
+        if (itemList.lastElementChild) {
+            // Remove o último elemento da lista
+            itemList.removeChild(itemList.lastElementChild);
+        } else {
+            // Exibe um alerta informando que não há mais itens
+            alert("Todos os itens já foram removidos!");
+        }
+    });
+
+    </script>
+</body>
+</html>

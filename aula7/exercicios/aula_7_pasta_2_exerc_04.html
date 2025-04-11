@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercício 4</title>
+</head>
+<body>
+    <div>
+        <h1 style="text-align: center;  font-size: 50px; color: red;">4️⃣ Inserindo elemento antes de outro:</h1>
+    </div>
+    <hr>
+    <div>
+        <h2>Objetivo:</h2>        
+        <h4> Crie uma lista com dois itens e um botão que insira um novo item antes do segundo item da lista. O novo item deve ter o texto "Item inserido antes do segundo".</h4>
+    </div>
+    <hr>
+
+    <ul id="myList">
+        <li>Item 1</li>
+        <li>Item 2</li>
+    </ul>
+    <button id="insertItem">Inserir Antes</button>
+
+    <script>
+       
+    // Seleciona o botão pelo ID
+    const insertButton = document.getElementById("insertItem");
+    // Seleciona a lista pelo ID
+    const myList = document.getElementById("myList");
+
+    // Adiciona um evento de clique ao botão
+    insertButton.addEventListener("click", () => {
+        // Cria um novo elemento <li>
+        const newItem = document.createElement("li");
+        // Define o texto do novo item
+        newItem.textContent = "Item inserido antes do segundo";
+        
+        // Seleciona o segundo item da lista
+        const secondItem = myList.children[1];
+        // Insere o novo item antes do segundo item
+        myList.insertBefore(newItem, secondItem);
+    });
+</script>
+
+</body>
+</html>

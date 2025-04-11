@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercício 1</title>
+</head>
+<body>
+
+    <div>
+        <h1 style="text-align: center;  font-size: 50px; color: red;">1️⃣ Criando e Adicionando Elementos:</h1>
+    </div>
+    <hr>
+    <div id="content"></div>
+    <button id="addParagraph">Adicionar Parágrafo</button>
+
+    <script>       
+
+    // Seleciona o botão pelo ID
+    const button = document.getElementById("addParagraph");
+    // Seleciona o div onde os parágrafos serão adicionados
+    const contentDiv = document.getElementById("content");
+
+    // Adiciona um evento de clique ao botão
+    button.addEventListener("click", () => {
+        // Cria um novo elemento <p>
+        const newParagraph = document.createElement("p");
+        // Define o texto do novo parágrafo
+        newParagraph.textContent = "Novo parágrafo adicionado!";
+        // Adiciona o novo parágrafo como filho do div
+        contentDiv.appendChild(newParagraph);
+    });
+
+
+    </script>
+</body>
+</html>

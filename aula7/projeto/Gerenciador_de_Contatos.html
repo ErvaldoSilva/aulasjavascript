@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Contatos</title>    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 20px;
+        }
+        .contact-card {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    
+        <h1 class="text-center">Gerenciador de Contatos (Ervaldo)</h1>
+        <hr>
+        <div class="container">
+        <!-- Formulário para adicionar contatos -->
+        <div class="mb-4">
+            <input type="text" id="nome" class="form-control" placeholder="Nome">
+            <input type="email" id="email" class="form-control mt-2" placeholder="Email">
+            <input type="tel" id="telefone" class="form-control mt-2" placeholder="Telefone">
+            <button id="adicionarContatos" class="btn btn-success mt-2">Adicionar Contato</button>
+        </div>
+
+        <!-- Campo de pesquisa -->
+        <input type="text" id="pesquisar" class="form-control" placeholder="Pesquisar contatos">
+
+        <!-- Lista de contatos -->
+        <div id="contactsList" class="mt-4"></div>
+    </div>
+
+    <!-- Script principal -->
+                        <script>
+                            // Seleciona os elementos
+                            const nomeInput = document.getElementById("nome");
+                            const emailInput = document.getElementById("email");
+                            const telefoneInput = document.getElementById("telefone");
+                            const addContactButton = document.getElementById("adicionarContatos");
+                            const searchInput = document.getElementById("pesquisar");
+                            const contactsList = document.getElementById("contactsList");
+
+                            // Função para carregar contatos do LocalStorage
+                            function loadContacts() {
+                                const contacts = JSON.parse(localStorage.getItem("contacts")) || [];
+                                displayContacts(contacts);
+                            }
+
+                            // Função para salvar contatos no LocalStorage
+                            function saveContacts(contacts) {
+                                localStorage.setItem("contacts", JSON.stringify(contacts));
+                            }
+
+                            // Função para exibir contatos
+                            function displayContacts(contacts) {
+                                contactsList.innerHTML = ""; // Limpa a lista
+                                contacts.forEach((contact, index) => {
+                                    const contactCard = document.createElement("div");
+                                    contactCard.className = "contact-card card";
+                                    contactCard.innerHTML = `
+                                        <div class="card-body">
+                                            <h5 class="card-title">${contact.nome}</h5>
+                                            <p class="card-text">Email: ${contact.email}</p>
+                                            <p class="card-text">Telefone: ${contact.telefone}</p>
+                                            <button class="btn btn-danger btn-sm" onclick="deleteContact(${index})">Excluir</button>
+                                            <button class="btn btn-primary btn-sm" onclick="editContact(${index})">Editar</button>
+                                        </div>
+                                    `;
+                                    contactsList.appendChild(contactCard);
+                                });
+                            }
+
+                            // Função para adicionar um contato
+                            addContactButton.addEventListener("click", () => {
+                                const nome = nomeInput.value.trim();
+                                const email = emailInput.value.trim();
+                                const telefone = telefoneInput.value.trim();
+
+                                if (nome && email && telefone) {
+                                    const contacts = JSON.parse(localStorage.getItem("contacts")) || [];
+                                    contacts.push({ nome, email, telefone });
+                                    contacts.sort((a, b) => a.nome.localeCompare(b.nome)); // Ordena por nome
+                                    saveContacts(contacts);
+                                    loadContacts();
+
+                                    // Limpa os campos
+                                    nomeInput.value = "";
+                                    emailInput.value = "";
+                                    telefoneInput.value = "";
+                                } else {
+                                    alert("Preencha todos os campos!");
+                                }
+                            });
+
+                            // Função para excluir um contato
+                            function deleteContact(index) {
+                                const contacts = JSON.parse(localStorage.getItem("contacts")) || [];
+                                contacts.splice(index, 1);
+                                saveContacts(contacts);
+                                loadContacts();
+                            }
+
+                            // Função para editar um contato
+                            function editContact(index) {
+                                const contacts = JSON.parse(localStorage.getItem("contacts")) || [];
+                                const contact = contacts[index];
+
+                                nomeInput.value = contact.nome;
+                                emailInput.value = contact.email;
+                                telefoneInput.value = contact.telefone;
+
+                                // Atualiza o botão de adicionar para salvar edição
+                                addContactButton.textContent = "Salvar Edição";
+                                addContactButton.onclick = () => {
+                                    contact.nome = nomeInput.value.trim();
+                                    contact.email = emailInput.value.trim();
+                                    contact.telefone = telefoneInput.value.trim();
+
+                                    if (contact.nome && contact.email && contact.telefone) {
+                                        contacts.sort((a, b) => a.nome.localeCompare(b.nome)); // Reordena
+                                        saveContacts(contacts);
+                                        loadContacts();
+                                        nomeInput.value = "";
+                                        emailInput.value = "";
+                                        telefoneInput.value = "";
+                                        addContactButton.textContent = "Adicionar Contato";
+                                        addContactButton.onclick = null;
+                                        addContactButton.addEventListener("click", addContactButton.click); // Retorna à função original
+                                    } else {
+                                        alert("Preencha todos os campos!");
+                                    }
+                                };
+                            }
+                            // Função para filtrar contatos
+                            searchInput.addEventListener("input", () => {
+                                const query = searchInput.value.toLowerCase();
+                                const contacts = JSON.parse(localStorage.getItem("contacts")) || [];
+                                const filteredContacts = contacts.filter(contact =>
+                                    contact.nome.toLowerCase().includes(query) ||
+                                    contact.email.toLowerCase().includes(query) ||
+                                    contact.telefone.includes(query)
+                                );
+                                displayContacts(filteredContacts);
+                            });
+
+                            // Carrega os contatos ao iniciar a página
+                            loadContacts();
+
+                        </script>
+    <!-- Importando Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
